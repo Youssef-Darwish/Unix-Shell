@@ -1,4 +1,9 @@
 
+#include <string.h>
+#include "environment.h"
+#include "commands.h"
+#include "stdlib.h"
+#include "stdio.h"
 typedef enum{ false = 0 , true = 1 } bool ;
 
 void start_shell(bool read_from_file);
@@ -6,6 +11,7 @@ void shell_loop(bool input_from_file);
 
 int main(int argc, char *argv[])
 {
+
 
     setup_environment();
 
@@ -39,7 +45,7 @@ void shell_loop(bool input_from_file)
 {
 	bool from_file = input_from_file;
 
-	while(true){
+	while(false){
 		if(from_file){
 			//read next instruction from file
 

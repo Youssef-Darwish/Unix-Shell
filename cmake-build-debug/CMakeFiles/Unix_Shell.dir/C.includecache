@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.c
+curses.h
+-
+string.h
+-
+command_parser.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.c
+commands.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.c
+environment.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
+variables.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+stdio.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+stdlib.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdlib.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.c
+file_processing.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.h
+stdio.h
+-
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/main.c
+string.h
+-
+environment.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
+commands.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
+stdlib.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdlib.h
+stdio.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.c
+variables.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+
