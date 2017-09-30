@@ -9,14 +9,18 @@
  */
 void setup_environment( void )
 {
-    printf("test");
     const char * path =getenv("PATH");
-    printf("%s\n",path);
+
     set_variable("PATH",path);
     const char * home = getenv("HOME");
-    printf("%s\n",home);
     set_variable("HOME",home);
-    const char * current_directory = getenv("PWD");
-    printf("%s/n",current_directory);
-    set_variable("PWD",current_directory);
+    const char * files_directory = getenv("PWD");
+    set_variable("PWD",files_directory);
+    // setting the default current directory to home
+    const char * current_directory = home;
+
+    printf("%s\n",path);
+    printf("%s\n",files_directory);
+    printf("%s\n",home);
+    printf("%s\n",current_directory);
 }

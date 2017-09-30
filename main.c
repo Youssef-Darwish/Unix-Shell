@@ -4,6 +4,9 @@
 #include "commands.h"
 #include "stdlib.h"
 #include "stdio.h"
+#include "unistd.h"
+#include "command_parser.h"
+
 typedef enum{ false = 0 , true = 1 } bool ;
 
 void start_shell(bool read_from_file);
@@ -13,9 +16,11 @@ int main(int argc, char *argv[])
 {
 
 
-    setup_environment();
+    //setup_environment();
+	cd(""); // let shell starts from home
+	parse_command("pwd");
 
-    // any other early configuration should be here
+	// any other early configuration should be here
 
     if( argc > 1 ){
         start(true);
@@ -29,8 +34,6 @@ int main(int argc, char *argv[])
 
 void start(bool read_from_file)
 {
-	cd(""); // let shell starts from home
-
 	if(read_from_file){
 		// file processing functions should be called from here
 

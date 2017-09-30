@@ -14,6 +14,7 @@ CMakeFiles/Unix_Shell.dir/environment.c.o: ../variables.h
 CMakeFiles/Unix_Shell.dir/file_processing.c.o: ../file_processing.c
 CMakeFiles/Unix_Shell.dir/file_processing.c.o: ../file_processing.h
 
+CMakeFiles/Unix_Shell.dir/main.c.o: ../command_parser.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../commands.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../environment.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../main.c

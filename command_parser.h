@@ -13,7 +13,7 @@
 	- Best practice is to use helper function for each collection of logical instructions,
 	  example: function for splitting the command by space into array of strings, ..etc
 */
-void parse_command( const char* command );  
+void parse_command( const char* command );
 
 
 #endif // COMMAND_PARSER_H
