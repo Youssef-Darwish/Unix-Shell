@@ -10,7 +10,7 @@ int keys_number;
 const char *lookup_variable(const char *key) {
     int j=0;
     while(j<keys_number){
-        if (strcmp(key[j],keys[j])){
+        if (!strcmp(key,keys[j])){
             return values[j];
         }
         j++;
@@ -23,8 +23,8 @@ void set_variable(const char *key, const char *value) {
 
     int i = 0;
     while (i < keys_number) {
-        if (strcmp(keys[i], key)) {
-            values[i] = value;
+        if (!strcmp(keys[i], key)) {
+            values[i] = (char *)value;
             return;
         }
         i++;

@@ -6,7 +6,7 @@
 #include "stdio.h"
 #include "unistd.h"
 #include "command_parser.h"
-
+#include "variables.h"
 typedef enum{ false = 0 , true = 1 } bool ;
 
 void start_shell(bool read_from_file);
@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 {
 
 
-    //setup_environment();
-	cd(""); // let shell starts from home
+    setup_environment();
+	//cd(""); // let shell starts from home
 	parse_command("ls -l-r & ");
-
+    print_all_variables();
 	// any other early configuration should be here
 
     if( argc > 1 ){

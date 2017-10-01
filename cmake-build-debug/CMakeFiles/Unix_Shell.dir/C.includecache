@@ -61,6 +61,8 @@ unistd.h
 /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/unistd.h
 command_parser.h
 /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+variables.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
 
 /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.c
 stdlib.h

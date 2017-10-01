@@ -9,6 +9,7 @@
  */
 void setup_environment( void )
 {
+    set_up_variables();
     const char * path =getenv("PATH");
 
     set_variable("PATH",path);
@@ -19,8 +20,9 @@ void setup_environment( void )
     // setting the default current directory to home
     const char * current_directory = home;
 
-    printf("%s\n",path);
+  /*  printf("%s\n",path);
     printf("%s\n",files_directory);
     printf("%s\n",home);
     printf("%s\n",current_directory);
+    */
 }

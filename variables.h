@@ -16,7 +16,7 @@ const char* lookup_variable( const char* key );
 */
 void set_variable( const char* key , const char* value );
 
-
+void set_up_variables();
 /*
 	[OPTIONAL] Doesn't affect the code logic
 	- This is a helper function to print all your variables

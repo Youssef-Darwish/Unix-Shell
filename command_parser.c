@@ -22,7 +22,7 @@ void check_execution_type(char **args);
 
 void check_command_type(char **args);
 
-void execute(char **args);
+void execute(char **args,enum execution_state state1);
 
 int size;
 
@@ -43,28 +43,25 @@ void parse_command(const char *command) {
     // printing slices
     int j = 0;
     while (arguments[j] != NULL) {
-        printf("%s\n", arguments[j]);
+       // printf("%s\n", arguments[j]);
         j++;
     }
 
     check_execution_type(arguments);
-    printf("%d\n", state);
+    //printf("%d\n", state);
 
 }
 
 void check_execution_type(char **args) {
-    int i = 0;
+    int i = size-1;
 
-    while (i < size - 1) {
-        i++;
-    }
-    // how to use strcmp?
-    if (args[i] == "&") {
+
+    if (!strcmp(args[i],"&")) {
         state = background;
 
     } else {
-        printf("%s\n", args[i]);
-        printf("fore\n");
+      //  printf("%s\n", args[i]);
+      //  printf("fore\n");
         state = foreground;
     }
 
@@ -72,10 +69,13 @@ void check_execution_type(char **args) {
 
 void check_command_type(char **args) {
 
+    
 
 }
 
-void execute(char **args) {
+
+// don't forget to handle signals (Ctrl +D)
+void execute(char **args,enum execution_state state1) {
 
 }
 
