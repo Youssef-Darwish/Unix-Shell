@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
     //setup_environment();
 	cd(""); // let shell starts from home
-	parse_command("pwd");
+	parse_command("ls -l-r & ");
 
 	// any other early configuration should be here
 
