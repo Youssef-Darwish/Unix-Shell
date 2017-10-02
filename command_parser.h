@@ -15,5 +15,6 @@
 */
 void parse_command( const char* command );
 
+void search_exe_file(const char * path);
 
 #endif // COMMAND_PARSER_H

@@ -91,3 +91,7 @@ void execute(char **args, enum execution_state state1) {
 
 }
 
+void search_exe_file(const char * path){
+
+}
+

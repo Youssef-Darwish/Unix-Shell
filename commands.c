@@ -27,7 +27,4 @@ void history_command(){
     //printf("%s\n",path);
     history_file = fopen(path,"w");
 
-
-    
-
 }
