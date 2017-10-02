@@ -1,4 +1,4 @@
-# Install script for directory: /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell
+# Install script for directory: /home/youssef/Desktop/OS/Unix-Shell
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

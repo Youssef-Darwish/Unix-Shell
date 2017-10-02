@@ -13,6 +13,6 @@ void cd( const char* path );
 void echo( const char* message );
 
 
-void history();
+void history_command();
 
 #endif // COMMANDS_H_

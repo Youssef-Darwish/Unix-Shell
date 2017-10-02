@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/command_parser.c.o"
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/commands.c.o"
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/environment.c.o"
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/file_processing.c.o"
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/main.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/main.c.o"
-  "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.c" "/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/variables.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/command_parser.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/command_parser.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/commands.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/commands.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/environment.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/environment.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/file_processing.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/file_processing.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/main.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/main.c.o"
+  "/home/youssef/Desktop/OS/Unix-Shell/variables.c" "/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir/variables.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

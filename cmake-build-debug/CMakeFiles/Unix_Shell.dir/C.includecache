@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.c
+/home/youssef/Desktop/OS/Unix-Shell/command_parser.c
 curses.h
 -
 string.h
@@ -14,69 +14,83 @@ string.h
 stdlib.h
 -
 command_parser.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+/home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 stdio.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
 unistd.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/unistd.h
+/home/youssef/Desktop/OS/Unix-Shell/unistd.h
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+/home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.c
+/home/youssef/Desktop/OS/Unix-Shell/commands.c
 commands.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
+/home/youssef/Desktop/OS/Unix-Shell/commands.h
 stdio.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
-
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
-
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.c
-environment.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
-variables.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
-stdio.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
-stdlib.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdlib.h
-
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
-
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.c
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
 file_processing.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
+string.h
+/home/youssef/Desktop/OS/Unix-Shell/string.h
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/commands.h
+
+/home/youssef/Desktop/OS/Unix-Shell/environment.c
+environment.h
+/home/youssef/Desktop/OS/Unix-Shell/environment.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
+stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
+stdlib.h
+/home/youssef/Desktop/OS/Unix-Shell/stdlib.h
+
+/home/youssef/Desktop/OS/Unix-Shell/environment.h
+
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.c
+file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
+string.h
+/home/youssef/Desktop/OS/Unix-Shell/string.h
+
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
 stdio.h
 -
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/main.c
+/home/youssef/Desktop/OS/Unix-Shell/main.c
 string.h
 -
 environment.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/environment.h
+/home/youssef/Desktop/OS/Unix-Shell/environment.h
 commands.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/commands.h
+/home/youssef/Desktop/OS/Unix-Shell/commands.h
 stdlib.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdlib.h
+/home/youssef/Desktop/OS/Unix-Shell/stdlib.h
 stdio.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
 unistd.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/unistd.h
+/home/youssef/Desktop/OS/Unix-Shell/unistd.h
 command_parser.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+/home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 variables.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
+file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
+commands.h
+/home/youssef/Desktop/OS/Unix-Shell/commands.h
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.c
+/home/youssef/Desktop/OS/Unix-Shell/variables.c
 stdlib.h
 -
 variables.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
 string.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/string.h
+/home/youssef/Desktop/OS/Unix-Shell/string.h
 stdio.h
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
 
-/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
 

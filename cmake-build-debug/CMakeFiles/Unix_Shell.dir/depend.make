@@ -6,6 +6,8 @@ CMakeFiles/Unix_Shell.dir/command_parser.c.o: ../command_parser.h
 
 CMakeFiles/Unix_Shell.dir/commands.c.o: ../commands.c
 CMakeFiles/Unix_Shell.dir/commands.c.o: ../commands.h
+CMakeFiles/Unix_Shell.dir/commands.c.o: ../file_processing.h
+CMakeFiles/Unix_Shell.dir/commands.c.o: ../variables.h
 
 CMakeFiles/Unix_Shell.dir/environment.c.o: ../environment.c
 CMakeFiles/Unix_Shell.dir/environment.c.o: ../environment.h
@@ -13,10 +15,12 @@ CMakeFiles/Unix_Shell.dir/environment.c.o: ../variables.h
 
 CMakeFiles/Unix_Shell.dir/file_processing.c.o: ../file_processing.c
 CMakeFiles/Unix_Shell.dir/file_processing.c.o: ../file_processing.h
+CMakeFiles/Unix_Shell.dir/file_processing.c.o: ../variables.h
 
 CMakeFiles/Unix_Shell.dir/main.c.o: ../command_parser.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../commands.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../environment.h
+CMakeFiles/Unix_Shell.dir/main.c.o: ../file_processing.h
 CMakeFiles/Unix_Shell.dir/main.c.o: ../main.c
 CMakeFiles/Unix_Shell.dir/main.c.o: ../variables.h
 
