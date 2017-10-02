@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "command_parser.h"
+#include "stdio.h"
+#include "unistd.h"
 
 /*
  *  Parsing the command will be on several sequential steps
@@ -22,7 +24,7 @@ void check_execution_type(char **args);
 
 void check_command_type(char **args);
 
-void execute(char **args,enum execution_state state1);
+void execute(char **args, enum execution_state state1);
 
 int size;
 
@@ -43,25 +45,24 @@ void parse_command(const char *command) {
     // printing slices
     int j = 0;
     while (arguments[j] != NULL) {
-       // printf("%s\n", arguments[j]);
+        // printf("%s\n", arguments[j]);
         j++;
     }
-
+    //int x = execv("/bin/ls", arguments);
+    //printf("%d\n", x);
     check_execution_type(arguments);
-    //printf("%d\n", state);
+        check_command_type(arguments);
 
 }
 
 void check_execution_type(char **args) {
-    int i = size-1;
+    int i = size - 1;
 
 
-    if (!strcmp(args[i],"&")) {
+    if (!strcmp(args[i], "&")) {
         state = background;
 
     } else {
-      //  printf("%s\n", args[i]);
-      //  printf("fore\n");
         state = foreground;
     }
 
@@ -69,13 +70,24 @@ void check_execution_type(char **args) {
 
 void check_command_type(char **args) {
 
-    
-
+    if (!strcmp(args[0], "#")) {
+        type = comment;
+    } else if (!strcmp(args[0], "cd")) {
+        type = cd;
+    } else if (!strcmp(args[0],"history")) {
+        type=history;
+    } else if (!strcmp(args[0], "echo")){
+        type=echo_type;
+    }else{
+        type = ex;
+    }
+    printf("%s\n",args[0]);
+    printf("%d\n",type);
 }
 
 
 // don't forget to handle signals (Ctrl +D)
-void execute(char **args,enum execution_state state1) {
+void execute(char **args, enum execution_state state1) {
 
 }
 

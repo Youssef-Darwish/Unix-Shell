@@ -10,6 +10,9 @@ void cd( const char* path );
 	- This function should be responsible for implementing the "echo" shell command
 	- Typically should lookup any variable included in the message
 */
-void echo( const char* message );  
+void echo( const char* message );
+
+
+void history();
 
 #endif // COMMANDS_H_

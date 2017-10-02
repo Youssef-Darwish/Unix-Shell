@@ -3,15 +3,15 @@
 #include "string.h"
 #include "stdio.h"
 
-char **keys;
-char **values;
+char **keys_saved;
+char **values_saved;
 int keys_number;
 
 const char *lookup_variable(const char *key) {
     int j=0;
     while(j<keys_number){
-        if (!strcmp(key,keys[j])){
-            return values[j];
+        if (!strcmp(key,keys_saved[j])){
+            return values_saved[j];
         }
         j++;
     }
@@ -23,15 +23,15 @@ void set_variable(const char *key, const char *value) {
 
     int i = 0;
     while (i < keys_number) {
-        if (!strcmp(keys[i], key)) {
-            values[i] = (char *)value;
+        if (!strcmp(keys_saved[i], key)) {
+            values_saved[i] = (char *)value;
             return;
         }
         i++;
     }
     // new variable
-    keys[i] = key;
-    values[i] = value;
+    keys_saved[i] = key;
+    values_saved[i] = value;
     keys_number++;
 
     // you should implement this function
@@ -40,14 +40,14 @@ void set_variable(const char *key, const char *value) {
 void print_all_variables(void) {
     int j = 0;
     while (j < keys_number) {
-        printf("%s\n", values[j]);
+        printf("%s\n", values_saved[j]);
         j++;
     }
     // you should implement this function
 }
 
 void set_up_variables() {
-    keys = malloc(1000000);
-    values = malloc(100000);
+    keys_saved = malloc(1000000);
+    values_saved = malloc(100000);
     keys_number = 0;
 }

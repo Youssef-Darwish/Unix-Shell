@@ -15,6 +15,10 @@ stdlib.h
 -
 command_parser.h
 /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
+stdio.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/stdio.h
+unistd.h
+/media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/unistd.h
 
 /media/youssef/0AEE95EDEE95D175/youssef /OS Assignments/Unix-Shell/command_parser.h
 

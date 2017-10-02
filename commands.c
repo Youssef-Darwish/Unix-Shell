@@ -15,3 +15,7 @@ void echo( const char* message )
 {
 
 }
+void history_command(){
+
+
+}

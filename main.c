@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
 
     setup_environment();
 	//cd(""); // let shell starts from home
-	parse_command("ls -l-r & ");
-    print_all_variables();
+	parse_command("history ");
+    //print_all_variables();
 	// any other early configuration should be here
 
     if( argc > 1 ){
