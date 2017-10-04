@@ -26,29 +26,29 @@ void check_execution_type(char **args);
 
 void check_command_type(char **args);
 
-void execute(char **args, enum execution_state state1);
-
-// modify search_file function : params file & folder
-int search_file();
+char *search_file(const char *file, char *directory, int flag);
 
 bool is_comment(const char *commmand);
 
 int get_variables(const char *commmand);
 
-
 char **parse_path(const char *path);
-
-int size;
-
 // use one function for slicing
 
 char **slice_string(const char *string, char *delimiter);
 
+int size;
+
 void parse_command(const char *command) {
-    char *pch;
-    char *temp = (char *) malloc(10000);
-    temp = strcpy(temp, command);
+
     char **arguments = (char **) malloc(100000);
+
+
+    arguments = slice_string(command," ");
+
+    char **path_files = slice_string(getenv("PATH"),":");
+
+    /*
     pch = strtok(temp, " ");
     int i = 0;
     while (pch != NULL) {
@@ -60,22 +60,44 @@ void parse_command(const char *command) {
     size = i;
     // printing slices
     int j = 0;
+    /*
     while (arguments[j] != NULL) {
         printf("%s\n", arguments[j]);
         j++;
     }
-    //search_file();
+     */
+
 
     // don't call execv() in this function : send params to be executed
 
-    //int x = execv("/usr/bin/touch", arguments);
-    //printf("%d\n", x);
     //check_execution_type(arguments);
     //check_command_type(arguments);
 
+    //char **path_files = parse_path(lookup_variable("PATH"));
 
-    char **path_files = parse_path(lookup_variable("PATH"));
+    char *path_flag = arguments[0];
 
+    int absolute_path_flag = 0;
+    if (path_flag[0] == '/') {
+        absolute_path_flag = 1;
+    }
+
+    int index = 0;
+    char *exe_file = "";
+    while (path_files[index] != NULL) {
+        //printf("%s\n", path_files[index]);
+        exe_file = search_file(arguments[0], path_files[index], absolute_path_flag);
+        // if file is not found
+        if (!strcmp(exe_file, "")) {
+            index++;
+            continue;
+        }
+        // file found
+        printf("founddddd\n\n");
+        printf("%s\n", exe_file);
+        break;
+    }
+    //execv(exe_file,arguments);
 }
 
 void check_execution_type(char **args) {
@@ -84,11 +106,9 @@ void check_execution_type(char **args) {
 
     if (!strcmp(args[i], "&")) {
         state = background;
-
     } else {
         state = foreground;
     }
-
 }
 
 void check_command_type(char **args) {
@@ -109,33 +129,44 @@ void check_command_type(char **args) {
 }
 
 
-// don't forget to handle signals (Ctrl +D)
-void execute(char **args, enum execution_state state1) {
+char *search_file(const char *file, char *directory, int flag) {
 
-}
-
-void search_exe_file(const char *path) {
-
-}
-
-int search_file() {
     DIR *dir;
     struct dirent *ent;
-    if ((dir = opendir("/bin/")) != NULL) {
-        /* print all the files and directories within directory */
+    if ((dir = opendir(directory)) != NULL) {
+        printf("directory opened\n");
         int number_of_files = 0;
         while ((ent = readdir(dir)) != NULL) {
-            printf("%s\n", ent->d_name);
+            char *file_name = ent->d_name;
+            if (flag) {
+                // absolute path and not a file name
+                char *path_found = malloc(100);
+                path_found = strcpy(path_found, directory);
+                path_found = strcat(path_found, "/");
+                path_found = strcat(path_found, file_name);
+                if (!strcmp(path_found, file)) {
+                    return path_found;
+                }
+            } else {
+                if (!strcmp(file_name, file)) {
+                    // printf("found\n");
+                    char *path_found = malloc(100);
+                    path_found = strcpy(path_found, directory);
+                    path_found = strcat(path_found, "/");
+                    strcat(path_found, file);
+                    return path_found;
+                }
+            }
             number_of_files++;
         }
-        printf("%d\n", number_of_files);
+        printf("Number of files :%d\n", number_of_files);
         closedir(dir);
     } else {
         /* could not open directory */
         perror("");
-        return EXIT_FAILURE;
+        printf("errorrrrr\n");
     }
-
+    return "";
 }
 
 char **parse_path(const char *path) {
@@ -153,11 +184,40 @@ char **parse_path(const char *path) {
         i++;
     }
     int j = 0;
+    // printing files in path variable
+
     printf("start of path files: \n\n");
     while (path_folders[j] != NULL) {
         printf("%s\n", path_folders[j]);
         j++;
     }
     printf("End of path files\n\n");
+    return path_folders;
+}
+
+char **slice_string(const char *string, char *delimiter) {
+    char *pch;
+    // path cannot be modified so use a temp char * and copy path into temp
+    char *temp = (char *) malloc(10000);
+    temp = strcpy(temp, string);
+    char **sliced_string = (char **) malloc(100000);
+    pch = strtok(temp, delimiter);
+    int i = 0;
+    while (pch != NULL) {
+        sliced_string[i] = pch;
+        pch = strtok(NULL, delimiter);
+        i++;
+    }
+    int j = 0;
+    // printing files in path variable
+    printf("printing slices \n\n\n");
+    while (sliced_string[j] != NULL) {
+
+        printf("%s\n", sliced_string[j]);
+        j++;
+    }
+    printf("end of printing slices\n\n");
+    return sliced_string;
+
 }
 

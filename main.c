@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     setup_environment();
     //cd(""); // let shell starts from home
-    parse_command("/usr/bin/touch t.txt");
+    parse_command("this is a try");
     //get_history_file();
     history_command();
     //print_all_variables();
