@@ -3,28 +3,32 @@
 #include "file_processing.h"
 #include "variables.h"
 #include "string.h"
-void cd( const char* path )
-{
+#include "unistd.h"
+#include "stdlib.h"
+void cd(const char *path) {
 
     // you should implement this function
-}  
+    chdir(path);
+    set_variable("PWD",path);
+    printf("%s\n\n",lookup_variable("PWD"));
+}
 
 /*  Echo command prints a message on the screen
  *  Should first search if a variable exists($) and get its value
  *
  */
-void echo( const char* message )
-{
+void echo(const char *message) {
 
 }
-void history_command(){
 
-    FILE * history_file;
-    char *path = (char *) lookup_variable("PWD");
-    printf("%s\n",path);
+void history_command() {
 
-    path = strcat(path,"/history.txt");
+    //FILE *history_file;
+    //char *path = (char *) lookup_variable("PWD");
     //printf("%s\n",path);
-    history_file = fopen(path,"w");
+
+    //path = strcat(path, "/history.txt");
+    //printf("%s\n",path);
+    //history_file = fopen(path, "w");
 
 }

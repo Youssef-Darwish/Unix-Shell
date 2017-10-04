@@ -28,59 +28,24 @@ void check_command_type(char **args);
 
 char *search_file(const char *file, char *directory, int flag);
 
-bool is_comment(const char *commmand);
-
-int get_variables(const char *commmand);
-
-char **parse_path(const char *path);
-// use one function for slicing
+int get_variables(const char *command);   // needed in echo & comment only ?
 
 char **slice_string(const char *string, char *delimiter);
 
-int size;
-
 void parse_command(const char *command) {
 
-    char **arguments = (char **) malloc(100000);
-
-
-    arguments = slice_string(command," ");
-
-    char **path_files = slice_string(getenv("PATH"),":");
-
-    /*
-    pch = strtok(temp, " ");
-    int i = 0;
-    while (pch != NULL) {
-        // printf ("%s\n",pch);
-        arguments[i] = pch;
-        pch = strtok(NULL, " ");
-        i++;
-    }
-    size = i;
-    // printing slices
-    int j = 0;
-    /*
-    while (arguments[j] != NULL) {
-        printf("%s\n", arguments[j]);
-        j++;
-    }
-     */
-
-
-    // don't call execv() in this function : send params to be executed
-
-    //check_execution_type(arguments);
-    //check_command_type(arguments);
-
-    //char **path_files = parse_path(lookup_variable("PATH"));
-
+    char **arguments = slice_string(command, " ");
+    char **path_files = slice_string(getenv("PATH"), ":");
+    check_execution_type(arguments);
+    check_command_type(arguments);
     char *path_flag = arguments[0];
 
     int absolute_path_flag = 0;
     if (path_flag[0] == '/') {
         absolute_path_flag = 1;
     }
+
+    // make a function to get exe file?
 
     int index = 0;
     char *exe_file = "";
@@ -101,9 +66,10 @@ void parse_command(const char *command) {
 }
 
 void check_execution_type(char **args) {
-    int i = size - 1;
-
-
+    int i = 0;
+    while (args[i + 1] != NULL) {
+        i++;
+    }
     if (!strcmp(args[i], "&")) {
         state = background;
     } else {
@@ -113,19 +79,22 @@ void check_execution_type(char **args) {
 
 void check_command_type(char **args) {
 
-    if (!strcmp(args[0], "#")) {
-        type = comment;
-    } else if (!strcmp(args[0], "cd")) {
+    if (!strcmp(args[0], "cd")) {
         type = cd;
     } else if (!strcmp(args[0], "history")) {
         type = history;
     } else if (!strcmp(args[0], "echo")) {
         type = echo_type;
     } else {
-        type = ex;
+        char *first_arg = args[0];
+        if (first_arg[0] == '#') {
+            type = comment;
+        } else {
+            type = ex;
+        }
     }
-    printf("%s\n", args[0]);
-    printf("%d\n", type);
+    //printf("%s\n", args[0]);
+    //printf("%d\n", type);
 }
 
 
@@ -167,32 +136,6 @@ char *search_file(const char *file, char *directory, int flag) {
         printf("errorrrrr\n");
     }
     return "";
-}
-
-char **parse_path(const char *path) {
-
-    char *pch;
-    // path cannot be modified so use a temp char * and copy path into temp
-    char *temp = (char *) malloc(10000);
-    temp = strcpy(temp, path);
-    char **path_folders = (char **) malloc(100000);
-    pch = strtok(temp, ":");
-    int i = 0;
-    while (pch != NULL) {
-        path_folders[i] = pch;
-        pch = strtok(NULL, ":");
-        i++;
-    }
-    int j = 0;
-    // printing files in path variable
-
-    printf("start of path files: \n\n");
-    while (path_folders[j] != NULL) {
-        printf("%s\n", path_folders[j]);
-        j++;
-    }
-    printf("End of path files\n\n");
-    return path_folders;
 }
 
 char **slice_string(const char *string, char *delimiter) {

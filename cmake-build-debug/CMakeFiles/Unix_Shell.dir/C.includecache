@@ -37,6 +37,10 @@ variables.h
 /home/youssef/Desktop/OS/Unix-Shell/variables.h
 string.h
 /home/youssef/Desktop/OS/Unix-Shell/string.h
+unistd.h
+/home/youssef/Desktop/OS/Unix-Shell/unistd.h
+stdlib.h
+/home/youssef/Desktop/OS/Unix-Shell/stdlib.h
 
 /home/youssef/Desktop/OS/Unix-Shell/commands.h
 

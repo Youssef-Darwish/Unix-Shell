@@ -19,7 +19,8 @@ void setup_environment( void )
     set_variable("PWD",files_directory);
     // setting the default current directory to home
     const char * current_directory = home;
-    printf("%s\n",path);
+
+    //printf("%s\n",path);
   /*  printf("%s\n",path);
     printf("%s\n",files_directory);
     printf("%s\n",home);

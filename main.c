@@ -9,6 +9,7 @@
 #include "variables.h"
 #include "file_processing.h"
 #include "commands.h"
+
 typedef enum {
     false = 0, true = 1
 } bool;
@@ -22,10 +23,9 @@ int main(int argc, char *argv[]) {
 
     setup_environment();
     //cd(""); // let shell starts from home
-    parse_command("this is a try");
-    //get_history_file();
-    history_command();
-    //print_all_variables();
+    //parse_command("cat Makefile");
+    cd("/home/youssef/Downloads");
+    parse_command("ls");
     // any other early configuration should be here
 
     if (argc > 1) {
