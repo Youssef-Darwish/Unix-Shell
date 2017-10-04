@@ -4,6 +4,7 @@
 CMakeFiles/Unix_Shell.dir/command_parser.c.o
  /home/youssef/Desktop/OS/Unix-Shell/command_parser.c
  /home/youssef/Desktop/OS/Unix-Shell/command_parser.h
+ /home/youssef/Desktop/OS/Unix-Shell/variables.h
 CMakeFiles/Unix_Shell.dir/commands.c.o
  /home/youssef/Desktop/OS/Unix-Shell/commands.c
  /home/youssef/Desktop/OS/Unix-Shell/commands.h

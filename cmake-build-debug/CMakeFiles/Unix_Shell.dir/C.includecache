@@ -19,6 +19,10 @@ stdio.h
 /home/youssef/Desktop/OS/Unix-Shell/stdio.h
 unistd.h
 /home/youssef/Desktop/OS/Unix-Shell/unistd.h
+dirent.h
+/home/youssef/Desktop/OS/Unix-Shell/dirent.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
 
 /home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 

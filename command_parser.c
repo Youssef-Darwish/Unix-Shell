@@ -4,6 +4,8 @@
 #include "command_parser.h"
 #include "stdio.h"
 #include "unistd.h"
+#include "dirent.h"
+#include "variables.h"
 
 /*
  *  Parsing the command will be on several sequential steps
@@ -26,7 +28,21 @@ void check_command_type(char **args);
 
 void execute(char **args, enum execution_state state1);
 
+// modify search_file function : params file & folder
+int search_file();
+
+bool is_comment(const char *commmand);
+
+int get_variables(const char *commmand);
+
+
+char **parse_path(const char *path);
+
 int size;
+
+// use one function for slicing
+
+char **slice_string(const char *string, char *delimiter);
 
 void parse_command(const char *command) {
     char *pch;
@@ -45,13 +61,20 @@ void parse_command(const char *command) {
     // printing slices
     int j = 0;
     while (arguments[j] != NULL) {
-        // printf("%s\n", arguments[j]);
+        printf("%s\n", arguments[j]);
         j++;
     }
-    //int x = execv("/bin/ls", arguments);
+    //search_file();
+
+    // don't call execv() in this function : send params to be executed
+
+    //int x = execv("/usr/bin/touch", arguments);
     //printf("%d\n", x);
-    check_execution_type(arguments);
-        check_command_type(arguments);
+    //check_execution_type(arguments);
+    //check_command_type(arguments);
+
+
+    char **path_files = parse_path(lookup_variable("PATH"));
 
 }
 
@@ -74,15 +97,15 @@ void check_command_type(char **args) {
         type = comment;
     } else if (!strcmp(args[0], "cd")) {
         type = cd;
-    } else if (!strcmp(args[0],"history")) {
-        type=history;
-    } else if (!strcmp(args[0], "echo")){
-        type=echo_type;
-    }else{
+    } else if (!strcmp(args[0], "history")) {
+        type = history;
+    } else if (!strcmp(args[0], "echo")) {
+        type = echo_type;
+    } else {
         type = ex;
     }
-    printf("%s\n",args[0]);
-    printf("%d\n",type);
+    printf("%s\n", args[0]);
+    printf("%d\n", type);
 }
 
 
@@ -91,7 +114,50 @@ void execute(char **args, enum execution_state state1) {
 
 }
 
-void search_exe_file(const char * path){
+void search_exe_file(const char *path) {
 
+}
+
+int search_file() {
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir("/bin/")) != NULL) {
+        /* print all the files and directories within directory */
+        int number_of_files = 0;
+        while ((ent = readdir(dir)) != NULL) {
+            printf("%s\n", ent->d_name);
+            number_of_files++;
+        }
+        printf("%d\n", number_of_files);
+        closedir(dir);
+    } else {
+        /* could not open directory */
+        perror("");
+        return EXIT_FAILURE;
+    }
+
+}
+
+char **parse_path(const char *path) {
+
+    char *pch;
+    // path cannot be modified so use a temp char * and copy path into temp
+    char *temp = (char *) malloc(10000);
+    temp = strcpy(temp, path);
+    char **path_folders = (char **) malloc(100000);
+    pch = strtok(temp, ":");
+    int i = 0;
+    while (pch != NULL) {
+        path_folders[i] = pch;
+        pch = strtok(NULL, ":");
+        i++;
+    }
+    int j = 0;
+    printf("start of path files: \n\n");
+    while (path_folders[j] != NULL) {
+        printf("%s\n", path_folders[j]);
+        j++;
+    }
+    printf("End of path files\n\n");
 }
 

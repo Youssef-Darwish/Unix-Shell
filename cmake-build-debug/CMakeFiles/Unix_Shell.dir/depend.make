@@ -3,6 +3,7 @@
 
 CMakeFiles/Unix_Shell.dir/command_parser.c.o: ../command_parser.c
 CMakeFiles/Unix_Shell.dir/command_parser.c.o: ../command_parser.h
+CMakeFiles/Unix_Shell.dir/command_parser.c.o: ../variables.h
 
 CMakeFiles/Unix_Shell.dir/commands.c.o: ../commands.c
 CMakeFiles/Unix_Shell.dir/commands.c.o: ../commands.h
