@@ -6,7 +6,7 @@
 #include "unistd.h"
 #include "dirent.h"
 #include "variables.h"
-
+#include "execute.h"
 /*
  *  Parsing the command will be on several sequential steps
  *  First : dividing the command to slices (arguments)
@@ -14,14 +14,11 @@
  *  Third: determine the type of commands :
  *      -cd, commands executed by exec, echo,history,comment
  */
+//declarations
 
-enum execution_state {
-    foreground, background
-} state;
-enum command_type {
-    cd, ex, echo_type, history, comment
-} type;
 
+command_type type;
+execution_state state;
 void check_execution_type(char **args);
 
 void check_command_type(char **args);
@@ -31,6 +28,7 @@ char *search_file(const char *file, char *directory, int flag);
 int get_variables(const char *command);   // needed in echo & comment only ?
 
 char **slice_string(const char *string, char *delimiter);
+//end of declarations
 
 void parse_command(const char *command) {
 
@@ -62,7 +60,9 @@ void parse_command(const char *command) {
         printf("%s\n", exe_file);
         break;
     }
+
     //execv(exe_file,arguments);
+    execute(exe_file,arguments,state,type);
 }
 
 void check_execution_type(char **args) {
@@ -80,7 +80,7 @@ void check_execution_type(char **args) {
 void check_command_type(char **args) {
 
     if (!strcmp(args[0], "cd")) {
-        type = cd;
+        type = cd_type;
     } else if (!strcmp(args[0], "history")) {
         type = history;
     } else if (!strcmp(args[0], "echo")) {

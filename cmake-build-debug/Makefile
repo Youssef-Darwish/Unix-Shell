@@ -204,6 +204,33 @@ environment.c.s:
 	$(MAKE) -f CMakeFiles/Unix_Shell.dir/build.make CMakeFiles/Unix_Shell.dir/environment.c.s
 .PHONY : environment.c.s
 
+execute.o: execute.c.o
+
+.PHONY : execute.o
+
+# target to build an object file
+execute.c.o:
+	$(MAKE) -f CMakeFiles/Unix_Shell.dir/build.make CMakeFiles/Unix_Shell.dir/execute.c.o
+.PHONY : execute.c.o
+
+execute.i: execute.c.i
+
+.PHONY : execute.i
+
+# target to preprocess a source file
+execute.c.i:
+	$(MAKE) -f CMakeFiles/Unix_Shell.dir/build.make CMakeFiles/Unix_Shell.dir/execute.c.i
+.PHONY : execute.c.i
+
+execute.s: execute.c.s
+
+.PHONY : execute.s
+
+# target to generate assembly for a file
+execute.c.s:
+	$(MAKE) -f CMakeFiles/Unix_Shell.dir/build.make CMakeFiles/Unix_Shell.dir/execute.c.s
+.PHONY : execute.c.s
+
 file_processing.o: file_processing.c.o
 
 .PHONY : file_processing.o
@@ -303,6 +330,9 @@ help:
 	@echo "... environment.o"
 	@echo "... environment.i"
 	@echo "... environment.s"
+	@echo "... execute.o"
+	@echo "... execute.i"
+	@echo "... execute.s"
 	@echo "... file_processing.o"
 	@echo "... file_processing.i"
 	@echo "... file_processing.s"

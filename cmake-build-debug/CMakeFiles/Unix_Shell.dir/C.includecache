@@ -23,6 +23,8 @@ dirent.h
 /home/youssef/Desktop/OS/Unix-Shell/dirent.h
 variables.h
 /home/youssef/Desktop/OS/Unix-Shell/variables.h
+execute.h
+/home/youssef/Desktop/OS/Unix-Shell/execute.h
 
 /home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 
@@ -55,6 +57,26 @@ stdlib.h
 /home/youssef/Desktop/OS/Unix-Shell/stdlib.h
 
 /home/youssef/Desktop/OS/Unix-Shell/environment.h
+
+/home/youssef/Desktop/OS/Unix-Shell/execute.c
+execute.h
+/home/youssef/Desktop/OS/Unix-Shell/execute.h
+stdlib.h
+/home/youssef/Desktop/OS/Unix-Shell/stdlib.h
+stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
+unistd.h
+/home/youssef/Desktop/OS/Unix-Shell/unistd.h
+sys/types.h
+/home/youssef/Desktop/OS/Unix-Shell/sys/types.h
+wait.h
+/home/youssef/Desktop/OS/Unix-Shell/wait.h
+commands.h
+/home/youssef/Desktop/OS/Unix-Shell/commands.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
+
+/home/youssef/Desktop/OS/Unix-Shell/execute.h
 
 /home/youssef/Desktop/OS/Unix-Shell/file_processing.c
 file_processing.h

@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Unix_Shell.dir/file_processing.c.o"
   "CMakeFiles/Unix_Shell.dir/main.c.o"
   "CMakeFiles/Unix_Shell.dir/variables.c.o"
+  "CMakeFiles/Unix_Shell.dir/execute.c.o"
   "Unix_Shell.pdb"
   "Unix_Shell"
 )

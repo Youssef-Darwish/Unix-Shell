@@ -102,6 +102,12 @@
 		<Unit filename="/home/youssef/Desktop/OS/Unix-Shell/environment.h">
 			<Option target="Unix_Shell"/>
 		</Unit>
+		<Unit filename="/home/youssef/Desktop/OS/Unix-Shell/execute.c">
+			<Option target="Unix_Shell"/>
+		</Unit>
+		<Unit filename="/home/youssef/Desktop/OS/Unix-Shell/execute.h">
+			<Option target="Unix_Shell"/>
+		</Unit>
 		<Unit filename="/home/youssef/Desktop/OS/Unix-Shell/file_processing.c">
 			<Option target="Unix_Shell"/>
 		</Unit>

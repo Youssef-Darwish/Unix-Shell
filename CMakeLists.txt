@@ -14,6 +14,6 @@ set(SOURCE_FILES
         file_processing.h
         main.c
         variables.c
-        variables.h)
+        variables.h execute.h execute.c)
 
 add_executable(Unix_Shell ${SOURCE_FILES})

@@ -5,16 +5,36 @@
 #include "string.h"
 #include "unistd.h"
 #include "stdlib.h"
+
 void cd(const char *path) {
 
-    // you should implement this function
+    // check if empty ?
+
+    char *copy = malloc(100);
+    copy = strcpy(copy, path);
+    if (copy[0] == '/') {
+        chdir(path);
+        set_variable("PWD", path);
+    } else if (copy[0] == '.') {
+        // trim the path
+    } else if (copy[0] == '~') {
+        set_variable("PWD", lookup_variable("HOME"));
+
+    } else if (copy[0] == ' ') {
+
+        set_variable("PWD", lookup_variable("HOME"));
+    }
+
+/*
     chdir(path);
-    set_variable("PWD",path);
-    printf("%s\n\n",lookup_variable("PWD"));
+    set_variable("PWD", path);
+    */
+    printf("%s\n\n", lookup_variable("PWD"));
 }
 
-/*  Echo command prints a message on the screen
- *  Should first search if a variable exists($) and get its value
+/*
+ * Echo command prints a message on the screen
+ * should first search if a variable exists($) and get its value
  *
  */
 void echo(const char *message) {
