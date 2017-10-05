@@ -1,15 +1,14 @@
 
 #include <string.h>
+#include <stdio.h>
 #include "environment.h"
 #include "commands.h"
 #include "stdlib.h"
-#include "stdio.h"
 #include "unistd.h"
 #include "command_parser.h"
 #include "variables.h"
 #include "file_processing.h"
 #include "commands.h"
-
 typedef enum {
     false = 0, true = 1
 } bool;
@@ -22,18 +21,28 @@ int main(int argc, char *argv[]) {
 
 
     setup_environment();
-    //cd(""); // let shell starts from home
-    parse_command("ls ");
+    char ** temp = malloc(11221);
+    temp[1]="/home/youssef/Downloads";
+
+    cd(temp); // let shell starts from home
+    parse_command("pwd");
+    //parse_command("cd /home/youssef/Desktop");
+    //parse_command("ls");
+
+    //temp[1] = "../Desktop";
+    //cd(temp);
+    //parse_command("ls");
+    //history_command();
     //cd("~");
     //parse_command("ls");
     // any other early configuration should be here
-/*
+
     if (argc > 1) {
         start(true);
     } else {
         start(false);
     }
-*/
+
     return 0;
 }
 
@@ -59,10 +68,12 @@ void shell_loop(bool input_from_file) {
         } else {
             //read next instruction from console
             printf("Shell>");
-            command = fgets(command,200,stdin);
+             gets(command);
+
 
         }
-            parse_command(command);
+        printf(" command: %s.",command);
+        parse_command(command);
         //parse your command here
 
         //execute your command here

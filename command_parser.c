@@ -51,13 +51,14 @@ void parse_command(const char *command) {
         //printf("%s\n", path_files[index]);
         exe_file = search_file(arguments[0], path_files[index], absolute_path_flag);
         // if file is not found
+        //printf("path files %s  arg: %s\n",path_files[index],arguments[0]);
         if (!strcmp(exe_file, "")) {
             index++;
             continue;
         }
         // file found
-        printf("founddddd\n\n");
-        printf("%s\n", exe_file);
+        //printf("founddddd\n\n");
+        //printf("%s\n", exe_file);
         break;
     }
 
@@ -103,10 +104,12 @@ char *search_file(const char *file, char *directory, int flag) {
     DIR *dir;
     struct dirent *ent;
     if ((dir = opendir(directory)) != NULL) {
-        printf("directory opened\n");
+        //printf("directory opened\n");
         int number_of_files = 0;
         while ((ent = readdir(dir)) != NULL) {
             char *file_name = ent->d_name;
+           // if(!strcmp(file_name,file))
+              //  printf(" file name %s .%s.\n",file_name,file);
             if (flag) {
                 // absolute path and not a file name
                 char *path_found = malloc(100);
@@ -120,15 +123,17 @@ char *search_file(const char *file, char *directory, int flag) {
                 if (!strcmp(file_name, file)) {
                     // printf("found\n");
                     char *path_found = malloc(100);
-                    path_found = strcpy(path_found, directory);
-                    path_found = strcat(path_found, "/");
+                    //path_found =
+                            strcpy(path_found, directory);
+                    //path_found =
+                    strcat(path_found, "/");
                     strcat(path_found, file);
                     return path_found;
                 }
             }
             number_of_files++;
         }
-        printf("Number of files :%d\n", number_of_files);
+        //printf("Number of files :%d\n", number_of_files);
         closedir(dir);
     } else {
         /* could not open directory */
@@ -153,6 +158,7 @@ char **slice_string(const char *string, char *delimiter) {
     }
     int j = 0;
     // printing files in path variable
+   /*
     printf("printing slices \n\n\n");
     while (sliced_string[j] != NULL) {
 
@@ -160,6 +166,7 @@ char **slice_string(const char *string, char *delimiter) {
         j++;
     }
     printf("end of printing slices\n\n");
+    */
     return sliced_string;
 
 }

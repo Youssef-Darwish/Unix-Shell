@@ -8,10 +8,16 @@
 FILE *history_file;
 
 void open_history_file() {
-    // you should implement this function
+    char *path = (char *) lookup_variable("PWD");
+    printf("%s\n",path);
+
+    path = "history.txt";
+    printf("%s\n",path);
+    history_file = fopen(path, "r+");
 }
 
 FILE *get_history_file() {
+    return history_file;
 }
 
 void close_history_file() {

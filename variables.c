@@ -12,11 +12,12 @@ const char *lookup_variable(const char *key) {
     while(j<keys_number){
         if (!strcmp(key,keys_saved[j])){
 
-            printf("looked up\n%s\n",values_saved[j]);
+            //printf("looked up %s\n%s\n",key,values_saved[j]);
             return values_saved[j];
         }
         j++;
     }
+    return "";
 
    // should indicate if not found
 }
