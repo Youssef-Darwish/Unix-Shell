@@ -2,6 +2,7 @@
 // Created by Youssef Darwish on 04/10/17.
 //
 
+#include <string.h>
 #include "execute.h"
 #include "stdlib.h"
 #include "stdio.h"
@@ -12,6 +13,7 @@
 #include "variables.h"
 #include "errno.h"
 #include "file_processing.h"
+
 void execute(char *path, char **arguments, execution_state state, command_type type) {
 
     pid_t pid;
@@ -40,9 +42,12 @@ void execute(char *path, char **arguments, execution_state state, command_type t
             //write_in_history_file(arguments);
         } else {
 
-            execv(path, arguments);
+            if (execv(path, arguments) == -1) {
+                printf("exit failure\n");
+                exit(EXIT_FAILURE);
+            }
             //write_in_history_file(arguments);
-            exit(errno);
+            //exit(errno);
         }
     } else {
         //here check for execution_state
@@ -55,9 +60,9 @@ void execute(char *path, char **arguments, execution_state state, command_type t
             waitid(P_PID, pid, &child_status, WEXITED);
             printf("Error : %d\n", errno);
             printf("Exit :%d\n\n", child_status);
-            printf("Child finished\n PID  %d\n",pid);
+            printf("Child finished\n PID  %d\n", pid);
             //write_in_history_file(arguments);
         }
-        return;
+
     }
 }

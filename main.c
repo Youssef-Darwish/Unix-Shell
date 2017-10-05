@@ -60,7 +60,10 @@ void shell_loop(bool input_from_file) {
     bool from_file = input_from_file;
 
     while (true) {
+        //printf(" PWD: %s\n\n",lookup_variable("PWD"));
+        char * temp = getcwd(temp,100);
         char * command = malloc(1000);
+        printf("PWD : %s\n\n",temp);
         if (from_file) {
             //read next instruction from file
 
@@ -68,12 +71,15 @@ void shell_loop(bool input_from_file) {
         } else {
             //read next instruction from console
             printf("Shell>");
+            printf("contined to next instruction\n\n");
              gets(command);
 
 
         }
         //printf(" command: %s.",command);
+
         parse_command(command);
+        free(command);
         //parse your command here
 
         //execute your command here

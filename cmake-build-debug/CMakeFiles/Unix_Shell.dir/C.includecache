@@ -59,6 +59,8 @@ stdlib.h
 /home/youssef/Desktop/OS/Unix-Shell/environment.h
 
 /home/youssef/Desktop/OS/Unix-Shell/execute.c
+string.h
+-
 execute.h
 /home/youssef/Desktop/OS/Unix-Shell/execute.h
 stdlib.h

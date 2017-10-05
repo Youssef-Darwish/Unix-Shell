@@ -27,22 +27,25 @@ void check_command_type(char **args);
 char *search_file(const char *file, char *directory, int flag);
 
 char **slice_string(const char *string, char *delimiter);
+
+char **exclude_ampersand(char **argu);
 //end of declarations
 
 void parse_command(const char *command) {
 
-    char **arguments = slice_string(command, " ");
 
+    char **arguments = slice_string(command, " ");
     check_command_type(arguments);
     check_execution_type(arguments);
-
+    if (state == background) {
+        arguments = exclude_ampersand(arguments);
+    }
     // if command is not executed by :execv, no need to check the path of .exe file
     //send it directly to execute
-    if (type!=ex) {
+    if (type != ex) {
         execute("", arguments, state, type);
     } else {
         char **path_files = slice_string(getenv("PATH"), ":");
-        check_execution_type(arguments);
 
         char *path_flag = arguments[0];
 
@@ -69,9 +72,25 @@ void parse_command(const char *command) {
             //printf("%s\n", exe_file);
             break;
         }
-
+        if (!strcmp(exe_file, "")) {
+            printf("invalid command\n\n");
+            free(arguments);
+            free(path_files);
+            return;
+        }
         //execv(exe_file,arguments);
+        // debugging
+        int k = 0;
+        printf("DEBUGGING ...\n");
+        printf("EXE: %s\n", exe_file);
+        while (arguments[k] != NULL) {
+            printf("%s\n", arguments[k]);
+            k++;
+        }
         execute(exe_file, arguments, state, type);
+        //free(arguments);
+        //free(path_files);
+
     }
 
 }
@@ -181,3 +200,13 @@ char **slice_string(const char *string, char *delimiter) {
 
 }
 
+char **exclude_ampersand(char **args) {
+
+    int i = 0;
+    char **modified_arguments = malloc(1000);
+    while (args[i + 1] != NULL) {
+        modified_arguments[i] = args[i];
+        i++;
+    }
+    return modified_arguments;
+}

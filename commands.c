@@ -14,10 +14,10 @@ void cd(const char **path) {
 
     char *copy = malloc(100);
     copy = strcpy(copy, path[1]);
-    char * current_working_firectory = malloc(100);
+    char *current_working_firectory = malloc(100);
     if (copy[0] == '/' || copy[0] == '.') {
         chdir(path[1]);
-        current_working_firectory = getcwd(current_working_firectory,100);
+        current_working_firectory = getcwd(current_working_firectory, 100);
         set_variable("PWD", current_working_firectory);
     } else if (copy[0] == '~') {
         set_variable("PWD", lookup_variable("HOME"));
@@ -26,9 +26,9 @@ void cd(const char **path) {
     } else if (copy[0] == ' ' || copy[0] == NULL) {
         chdir(lookup_variable("HOME"));
         set_variable("PWD", lookup_variable("HOME"));
-    }else { //relative path is given
-        chdir(strcat((char *)lookup_variable("PWD"),path));
-        current_working_firectory = getcwd(current_working_firectory,100);
+    } else { //relative path is given
+        chdir(strcat((char *) lookup_variable("PWD"), path));
+        current_working_firectory = getcwd(current_working_firectory, 100);
         set_variable("PWD", current_working_firectory);
     }
 
@@ -61,6 +61,7 @@ void echo(const char **message) {
         }
         i++;
     }
+    printf("\n");
 }
 
 void history_command() {
@@ -91,6 +92,4 @@ void comment_command(char **message) {
     open_history_file();
     write_in_history_file(message);
     close_history_file();
-
-    // get history file & write
 }
