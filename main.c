@@ -72,7 +72,7 @@ void shell_loop(bool input_from_file) {
 
 
         }
-        printf(" command: %s.",command);
+        //printf(" command: %s.",command);
         parse_command(command);
         //parse your command here
 

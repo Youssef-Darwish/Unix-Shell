@@ -9,13 +9,15 @@
 void open_history_file();
 FILE * get_history_file();
 void close_history_file();
-
-/* 
+void write_in_history_file(char ** messages);
+/*
 	log file basic functions' prototypes
 */
 void open_log_file();
 FILE* get_log_file();
 void close_log_file();
+void write_in_log_file(char ** messages);
+
 
 /* 
 	CommandsBatch file basic functions' prototypes

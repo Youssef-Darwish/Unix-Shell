@@ -19,13 +19,12 @@
 
 command_type type;
 execution_state state;
+
 void check_execution_type(char **args);
 
 void check_command_type(char **args);
 
 char *search_file(const char *file, char *directory, int flag);
-
-int get_variables(const char *command);   // needed in echo & comment only ?
 
 char **slice_string(const char *string, char *delimiter);
 //end of declarations
@@ -33,37 +32,48 @@ char **slice_string(const char *string, char *delimiter);
 void parse_command(const char *command) {
 
     char **arguments = slice_string(command, " ");
-    char **path_files = slice_string(getenv("PATH"), ":");
-    check_execution_type(arguments);
+
     check_command_type(arguments);
-    char *path_flag = arguments[0];
+    check_execution_type(arguments);
 
-    int absolute_path_flag = 0;
-    if (path_flag[0] == '/') {
-        absolute_path_flag = 1;
-    }
+    // if command is not executed by :execv, no need to check the path of .exe file
+    //send it directly to execute
+    if (type!=ex) {
+        execute("", arguments, state, type);
+    } else {
+        char **path_files = slice_string(getenv("PATH"), ":");
+        check_execution_type(arguments);
 
-    // make a function to get exe file?
+        char *path_flag = arguments[0];
 
-    int index = 0;
-    char *exe_file = "";
-    while (path_files[index] != NULL) {
-        //printf("%s\n", path_files[index]);
-        exe_file = search_file(arguments[0], path_files[index], absolute_path_flag);
-        // if file is not found
-        //printf("path files %s  arg: %s\n",path_files[index],arguments[0]);
-        if (!strcmp(exe_file, "")) {
-            index++;
-            continue;
+        int absolute_path_flag = 0;
+        if (path_flag[0] == '/') {
+            absolute_path_flag = 1;
         }
-        // file found
-        //printf("founddddd\n\n");
-        //printf("%s\n", exe_file);
-        break;
+
+        // make a function to get exe file?
+
+        int index = 0;
+        char *exe_file = "";
+        while (path_files[index] != NULL) {
+            //printf("%s\n", path_files[index]);
+            exe_file = search_file(arguments[0], path_files[index], absolute_path_flag);
+            // if file is not found
+            //printf("path files %s  arg: %s\n",path_files[index],arguments[0]);
+            if (!strcmp(exe_file, "")) {
+                index++;
+                continue;
+            }
+            // file found
+            //printf("founddddd\n\n");
+            //printf("%s\n", exe_file);
+            break;
+        }
+
+        //execv(exe_file,arguments);
+        execute(exe_file, arguments, state, type);
     }
 
-    //execv(exe_file,arguments);
-    execute(exe_file,arguments,state,type);
 }
 
 void check_execution_type(char **args) {
@@ -108,8 +118,8 @@ char *search_file(const char *file, char *directory, int flag) {
         int number_of_files = 0;
         while ((ent = readdir(dir)) != NULL) {
             char *file_name = ent->d_name;
-           // if(!strcmp(file_name,file))
-              //  printf(" file name %s .%s.\n",file_name,file);
+            // if(!strcmp(file_name,file))
+            //  printf(" file name %s .%s.\n",file_name,file);
             if (flag) {
                 // absolute path and not a file name
                 char *path_found = malloc(100);
@@ -124,7 +134,7 @@ char *search_file(const char *file, char *directory, int flag) {
                     // printf("found\n");
                     char *path_found = malloc(100);
                     //path_found =
-                            strcpy(path_found, directory);
+                    strcpy(path_found, directory);
                     //path_found =
                     strcat(path_found, "/");
                     strcat(path_found, file);
@@ -158,15 +168,15 @@ char **slice_string(const char *string, char *delimiter) {
     }
     int j = 0;
     // printing files in path variable
-   /*
-    printf("printing slices \n\n\n");
-    while (sliced_string[j] != NULL) {
+    /*
+     printf("printing slices \n\n\n");
+     while (sliced_string[j] != NULL) {
 
-        printf("%s\n", sliced_string[j]);
-        j++;
-    }
-    printf("end of printing slices\n\n");
-    */
+         printf("%s\n", sliced_string[j]);
+         j++;
+     }
+     printf("end of printing slices\n\n");
+     */
     return sliced_string;
 
 }

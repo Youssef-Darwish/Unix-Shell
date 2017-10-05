@@ -14,17 +14,22 @@ void cd(const char **path) {
 
     char *copy = malloc(100);
     copy = strcpy(copy, path[1]);
-
+    char * current_working_firectory = malloc(100);
     if (copy[0] == '/' || copy[0] == '.') {
         chdir(path[1]);
-        set_variable("PWD", path[1]);
-        // set pwd variable to getcwd
+        current_working_firectory = getcwd(current_working_firectory,100);
+        set_variable("PWD", current_working_firectory);
     } else if (copy[0] == '~') {
         set_variable("PWD", lookup_variable("HOME"));
+        chdir(lookup_variable("HOME"));
 
     } else if (copy[0] == ' ' || copy[0] == NULL) {
         chdir(lookup_variable("HOME"));
         set_variable("PWD", lookup_variable("HOME"));
+    }else { //relative path is given
+        chdir(strcat((char *)lookup_variable("PWD"),path));
+        current_working_firectory = getcwd(current_working_firectory,100);
+        set_variable("PWD", current_working_firectory);
     }
 
 /*
@@ -60,18 +65,8 @@ void echo(const char **message) {
 
 void history_command() {
 
-    /*
-    FILE *history_file;
-    char *path = (char *) lookup_variable("PWD");
-    printf("%s\n",path);
-
-    path = strcat(path, "/history.txt");
-    printf("%s\n",path);
-    history_file = fopen(path, "w");
-     */
     open_history_file();
     FILE *history_file = get_history_file();
-
     printf("opened\n\n");
     char c;
     int count = 0;
@@ -93,12 +88,9 @@ void history_command() {
 
 void comment_command(char **message) {
 
-    int i = 0;
-    while (message[i] != NULL) {
-        // print in file not in stdout
-        printf("%s ", message[i]);
-        i++;
-    }
+    open_history_file();
+    write_in_history_file(message);
+    close_history_file();
 
     // get history file & write
 }

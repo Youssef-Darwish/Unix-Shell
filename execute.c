@@ -10,14 +10,12 @@
 #include "wait.h"
 #include "commands.h"
 #include "variables.h"
-
+#include "errno.h"
+#include "file_processing.h"
 void execute(char *path, char **arguments, execution_state state, command_type type) {
 
     pid_t pid;
-    //pid = getpid();
-    //printf("Process ID: \n%d\n", pid);
-
-
+    siginfo_t child_status;
     // cd command is handled separately without fork
     if (type == cd_type) {
         cd(arguments);
@@ -27,25 +25,25 @@ void execute(char *path, char **arguments, execution_state state, command_type t
 
     pid = fork();
 
-    // for cd and echo commands: let the path be the message? xD
-
     if (pid == 0) {
         //check for type
         printf("Child goes here\n");
         //sleep(10);
         if (type == comment) {
             comment_command(arguments);
+            return;
         } else if (type == history) {
             history_command();
+            //write_in_history_file(arguments);
         } else if (type == echo_type) {
             echo(arguments);
+            //write_in_history_file(arguments);
         } else {
 
             execv(path, arguments);
-
+            //write_in_history_file(arguments);
+            exit(errno);
         }
-
-        exit(0);
     } else {
         //here check for execution_state
         // upon success add in history & log files
@@ -54,10 +52,12 @@ void execute(char *path, char **arguments, execution_state state, command_type t
         if (state == foreground) {
             //printf("waiting...");
 
-            waitid(P_PID, pid, NULL, WEXITED);
+            waitid(P_PID, pid, &child_status, WEXITED);
+            printf("Error : %d\n", errno);
+            printf("Exit :%d\n\n", child_status);
+            printf("Child finished\n PID  %d\n",pid);
+            //write_in_history_file(arguments);
         }
-
-
         return;
     }
 }

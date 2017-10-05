@@ -75,6 +75,10 @@ commands.h
 /home/youssef/Desktop/OS/Unix-Shell/commands.h
 variables.h
 /home/youssef/Desktop/OS/Unix-Shell/variables.h
+errno.h
+/home/youssef/Desktop/OS/Unix-Shell/errno.h
+file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
 
 /home/youssef/Desktop/OS/Unix-Shell/execute.h
 
