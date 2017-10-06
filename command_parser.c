@@ -28,7 +28,7 @@ char *search_file(const char *file, char *directory, int flag);
 
 char **slice_string(const char *string, char *delimiter);
 
-char **exclude_ampersand(char **argu);
+char **exclude_ampersand(char **args);
 //end of declarations
 
 void parse_command(const char *command) {
@@ -73,7 +73,7 @@ void parse_command(const char *command) {
             break;
         }
         if (!strcmp(exe_file, "")) {
-            printf("invalid command\n\n");
+            printf("Invalid Command!\n\n");
             free(arguments);
             free(path_files);
             return;
@@ -167,7 +167,7 @@ char *search_file(const char *file, char *directory, int flag) {
     } else {
         /* could not open directory */
         perror("");
-        printf("errorrrrr\n");
+        //printf("errorrrrr\n");
     }
     return "";
 }
@@ -196,6 +196,7 @@ char **slice_string(const char *string, char *delimiter) {
      }
      printf("end of printing slices\n\n");
      */
+    sliced_string[i]=NULL;
     return sliced_string;
 
 }

@@ -5,23 +5,28 @@
 #include "unistd.h"
 #include <string.h>
 #include <stdio.h>
+#include "file_processing.h"
 
 typedef enum {
     false = 0, true = 1
 } bool;
 
 static bool keep_running = true;
+FILE *batch_file;
+char **file_arg;
+
 void start_shell(bool read_from_file);
 
 void shell_loop(bool input_from_file);
+
 
 int main(int argc, char *argv[]) {
 
     //signal(SIGINT, interrupt_handler);
 
     setup_environment();
-    char ** temp = malloc(11221);
-    temp[1]="/home/youssef/Downloads";
+    char **temp = malloc(11221);
+    temp[1] = "/home/youssef/Downloads";
 
     cd(temp); // let shell starts from home
     parse_command("pwd");
@@ -31,9 +36,11 @@ int main(int argc, char *argv[]) {
     //temp[1] = "../Desktop";
     //cd(temp);
     //parse_command("ls");
-    //cd("~");
+    temp[1] = "~";
+    cd(temp);
     //parse_command("ls");
     // any other early configuration should be here
+    file_arg = argv;
 
     if (argc > 1) {
         start(true);
@@ -46,11 +53,19 @@ int main(int argc, char *argv[]) {
 
 void start(bool read_from_file) {
     if (read_from_file) {
-        // file processing functions should be called from here
-
-        shell_loop(true);
+        printf("read from file\n\n");
+        open_commands_batch_file(file_arg[1]);
+        batch_file = get_commands_batch_file();
+        if (batch_file) {
+            printf("file found\n\n");
+        } else {
+            printf("no such batch file\n");
+            read_from_file = false;
+        }
+        batch_file = get_commands_batch_file();
+        shell_loop(read_from_file);
     } else {
-        shell_loop(false);
+        shell_loop(read_from_file);
     }
 }
 
@@ -59,20 +74,23 @@ void shell_loop(bool input_from_file) {
 
     while (keep_running) {
         //printf(" PWD: %s\n\n",lookup_variable("PWD"));
-        char * temp = getcwd(temp,100);
-        char * command = malloc(1000);
-        printf("PWD : %s\n\n",temp);
+        char *temp = getcwd(temp, 100);
+        char *command = malloc(1000);
+        printf("PWD : %s\n\n", temp);
         if (from_file) {
             //read next instruction from file
+
+            if (getline(&command, 100, batch_file) != -1) {
+                printf("COMMAND FROM FILE : %s\n", command);
+                parse_command(command);
+            }
 
             // if end of file {from_file = false; continue;}
         } else {
             //read next instruction from console
             printf("Shell>");
             printf("contined to next instruction\n\n");
-             gets(command);
-
-
+            gets(command);
         }
         //printf(" command: %s.",command);
 
@@ -88,8 +106,3 @@ void shell_loop(bool input_from_file) {
         */
     }
 }
-/*
-void intHandler(int) {
-    keepRunning = false;
-}
- */

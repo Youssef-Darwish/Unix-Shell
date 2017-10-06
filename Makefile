@@ -24,4 +24,4 @@ commands.o: commands.c commands.h file_processing.h variables.h
 	gcc -c commands.c 
 
 clean:
-	rm *.o output
+	rm *.o Shell

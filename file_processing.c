@@ -11,7 +11,8 @@ FILE * batch_file;
 void open_history_file() {
     char *path = (char *) lookup_variable("PWD");
     printf("%s\n",path);
-    // hard coding path for now only
+
+    // hard coding path for now only  instead use pwd
     path = "/home/youssef/Desktop/OS/Unix-Shell/history.txt";
     printf("%s\n",path);
     history_file = fopen(path, "a+");
@@ -67,12 +68,15 @@ void write_in_log_file(char * line){
 /* 
 	CommandsBatch file section
 */
-void open_commands_batch_file() {
+void open_commands_batch_file(char * path) {
+    printf("Paht to file : %s\n",path);
+    batch_file = fopen(path,"r");
+
     // you should implement this function
 }
 
 FILE *get_commands_batch_file() {
-    // you should implement this function
+    return batch_file;
 }
 
 void close_commands_batch_file() {

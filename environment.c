@@ -17,8 +17,10 @@ void setup_environment( void )
     set_variable("HOME",home);
     const char * files_directory = getenv("PWD");
     set_variable("PWD",files_directory);
+    set_variable("FILES_DIRECTORY",files_directory);
+
+    printf("FILES DIRECTORY : %s\n\n",lookup_variable("FILES_DIRECTORY"));
     // setting the default current directory to home
-    const char * current_directory = home;
 
     //printf("%s\n",path);
   /*  printf("%s\n",path);

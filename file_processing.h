@@ -22,7 +22,7 @@ void write_in_log_file(char * messages);
 /* 
 	CommandsBatch file basic functions' prototypes
 */
-void open_commands_batch_file();
+void open_commands_batch_file(char * path);
 FILE* get_commands_batch_file();
 void close_commands_batch_file();
 
