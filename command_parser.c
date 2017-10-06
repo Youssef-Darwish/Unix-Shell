@@ -59,7 +59,6 @@ void parse_command(const char *command) {
         int index = 0;
         char *exe_file = "";
         while (path_files[index] != NULL) {
-            //printf("%s\n", path_files[index]);
             exe_file = search_file(arguments[0], path_files[index], absolute_path_flag);
             // if file is not found
             //printf("path files %s  arg: %s\n",path_files[index],arguments[0]);
@@ -68,8 +67,6 @@ void parse_command(const char *command) {
                 continue;
             }
             // file found
-            //printf("founddddd\n\n");
-            //printf("%s\n", exe_file);
             break;
         }
         if (!strcmp(exe_file, "")) {
@@ -78,7 +75,6 @@ void parse_command(const char *command) {
             free(path_files);
             return;
         }
-        //execv(exe_file,arguments);
         // debugging
         int k = 0;
         printf("DEBUGGING ...\n");

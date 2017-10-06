@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "file_processing.h"
-
+#include "variables.h"
 typedef enum {
     false = 0, true = 1
 } bool;
@@ -25,23 +25,13 @@ int main(int argc, char *argv[]) {
     //signal(SIGINT, interrupt_handler);
 
     setup_environment();
-    char **temp = malloc(11221);
-    temp[1] = "/home/youssef/Downloads";
-
+    char **temp = malloc(100);
+    temp[1] = lookup_variable("HOME");
     cd(temp); // let shell starts from home
-    parse_command("pwd");
-    //parse_command("cd /home/youssef/Desktop");
-    //parse_command("ls");
-
-    //temp[1] = "../Desktop";
-    //cd(temp);
-    //parse_command("ls");
-    temp[1] = "~";
-    cd(temp);
     //parse_command("ls");
     // any other early configuration should be here
     file_arg = argv;
-
+    free(temp);
     if (argc > 1) {
         start(true);
     } else {

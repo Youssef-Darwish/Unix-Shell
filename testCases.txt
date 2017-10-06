@@ -9,7 +9,7 @@ vim
 
 gedit &
 ps
-bin/ps
+/bin/ps
 
 pwd
 mkdir cs333

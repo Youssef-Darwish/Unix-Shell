@@ -18,6 +18,7 @@ void cd(const char **path) {
     char *copy = malloc(100);
     copy = strcpy(copy, path[1]);
     char *current_working_firectory = malloc(100);
+    printf("Current working directory before cd command is:\n%s\n\n",lookup_variable("PWD"));
     if (copy[0] == '/' || copy[0] == '.') {
         chdir(path[1]);
         current_working_firectory = getcwd(current_working_firectory, 100);
@@ -26,20 +27,23 @@ void cd(const char **path) {
         set_variable("PWD", lookup_variable("HOME"));
         chdir(lookup_variable("HOME"));
 
-    } else if (copy[0] == ' ' || copy[0] == NULL) {
+    } else if (copy[0] == ' ' || copy[0] == '\0') {
         chdir(lookup_variable("HOME"));
         set_variable("PWD", lookup_variable("HOME"));
     } else { //relative path is given
-        chdir(strcat((char *) lookup_variable("PWD"), path));
+        //printf(" Concatenated Path :%s\n",strcat((char *) lookup_variable("PWD"), path[1]));
+        //chdir(strcat((char *) lookup_variable("PWD"), path[1]));
         current_working_firectory = getcwd(current_working_firectory, 100);
         set_variable("PWD", current_working_firectory);
     }
-
+    printf("Current working directory after cd command is:\n%s\n\n",lookup_variable("PWD"));
 /*
     chdir(path);
     set_variable("PWD", path);
     */
-    printf("%s\n\n", lookup_variable("PWD"));
+    //printf("%s\n\n", lookup_variable("PWD"));
+    free(current_working_firectory);
+    free(copy);
 }
 
 /*

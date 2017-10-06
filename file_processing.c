@@ -9,8 +9,8 @@ FILE *history_file;
 FILE *log_file;
 FILE * batch_file;
 void open_history_file() {
-    char *path = (char *) lookup_variable("PWD");
-    printf("%s\n",path);
+    char *path = (char *) lookup_variable("FILES_DIRECTORY");
+    printf("History File path :    %s\n",path);
 
     // hard coding path for now only  instead use pwd
     path = "/home/youssef/Desktop/OS/Unix-Shell/history.txt";

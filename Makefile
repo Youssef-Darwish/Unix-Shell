@@ -2,7 +2,7 @@
 Shell: main.o file_processing.o environment.o variables.o command_parser.o execute.o commands.o
 	gcc  main.o file_processing.o environment.o variables.o command_parser.o execute.o commands.o -o Shell
 
-main.o: main.c command_parser.h commands.h environment.h
+main.o: main.c command_parser.h commands.h environment.h variables.h
 	gcc -c main.c 
 
 file_processing.o: file_processing.c file_processing.h variables.h

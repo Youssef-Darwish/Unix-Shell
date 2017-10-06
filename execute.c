@@ -21,6 +21,9 @@ void execute(char *path, char **arguments, execution_state state, command_type t
     // cd command is handled separately without fork
     if (type == cd_type) {
         cd(arguments);
+        open_history_file();
+        write_in_history_file(arguments);
+        close_history_file();
         return;
     }
 
@@ -56,11 +59,14 @@ void execute(char *path, char **arguments, execution_state state, command_type t
         printf("Parent\n");
         if (state == foreground) {
             //printf("waiting...");
-
+            errno=0;
             waitid(P_PID, pid, &child_status, WEXITED);
             printf("Error : %d\n", errno);
             printf("Exit :%d\n\n", child_status);
             printf("Child finished\n PID  %d\n", pid);
+            open_history_file();
+            write_in_history_file(arguments);
+            close_history_file();
             //open_log_file();
             //printf("opened");
             //write_in_log_file("Child process terminated");
