@@ -8,6 +8,9 @@
 
 char *getVars(char *word);
 
+
+// adding a comment to test Makefile xD
+
 void cd(const char **path) {
 
     // check if empty ?

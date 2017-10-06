@@ -61,6 +61,10 @@ void execute(char *path, char **arguments, execution_state state, command_type t
             printf("Error : %d\n", errno);
             printf("Exit :%d\n\n", child_status);
             printf("Child finished\n PID  %d\n", pid);
+            //open_log_file();
+            //printf("opened");
+            //write_in_log_file("Child process terminated");
+
             //write_in_history_file(arguments);
         }
 

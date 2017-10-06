@@ -43,8 +43,8 @@ void open_log_file() {
     printf("%s\n",path);
     // hard coding path for now only
     path = "/home/youssef/Desktop/log.txt";
-    printf("%s\n",path);
-    log_file = fopen(path, "a");
+    printf(" LOG FILE PATH\n%s\n",path);
+    log_file = fopen(path, "a+");
 
 }
 
@@ -55,7 +55,7 @@ FILE *get_log_file() {
 void close_log_file() {
     // you should implement this function
 }
-void write_in_log_file(char ** line){
+void write_in_log_file(char * line){
     int i=0;
     while(line[i]!=NULL){
         fprintf(log_file,"%s ",line[i]);

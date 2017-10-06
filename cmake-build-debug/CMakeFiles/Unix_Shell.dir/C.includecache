@@ -97,10 +97,8 @@ stdio.h
 -
 
 /home/youssef/Desktop/OS/Unix-Shell/main.c
-string.h
--
-stdio.h
--
+command_parser.h
+/home/youssef/Desktop/OS/Unix-Shell/command_parser.h
 environment.h
 /home/youssef/Desktop/OS/Unix-Shell/environment.h
 commands.h
@@ -109,14 +107,10 @@ stdlib.h
 /home/youssef/Desktop/OS/Unix-Shell/stdlib.h
 unistd.h
 /home/youssef/Desktop/OS/Unix-Shell/unistd.h
-command_parser.h
-/home/youssef/Desktop/OS/Unix-Shell/command_parser.h
-variables.h
-/home/youssef/Desktop/OS/Unix-Shell/variables.h
-file_processing.h
-/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
-commands.h
-/home/youssef/Desktop/OS/Unix-Shell/commands.h
+string.h
+-
+stdio.h
+-
 
 /home/youssef/Desktop/OS/Unix-Shell/variables.c
 stdlib.h

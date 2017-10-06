@@ -16,7 +16,7 @@ void write_in_history_file(char ** messages);
 void open_log_file();
 FILE* get_log_file();
 void close_log_file();
-void write_in_log_file(char ** messages);
+void write_in_log_file(char * messages);
 
 
 /* 

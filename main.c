@@ -1,24 +1,23 @@
-
-#include <string.h>
-#include <stdio.h>
+#include "command_parser.h"
 #include "environment.h"
 #include "commands.h"
 #include "stdlib.h"
 #include "unistd.h"
-#include "command_parser.h"
-#include "variables.h"
-#include "file_processing.h"
-#include "commands.h"
+#include <string.h>
+#include <stdio.h>
+
 typedef enum {
     false = 0, true = 1
 } bool;
 
+static bool keep_running = true;
 void start_shell(bool read_from_file);
 
 void shell_loop(bool input_from_file);
 
 int main(int argc, char *argv[]) {
 
+    //signal(SIGINT, interrupt_handler);
 
     setup_environment();
     char ** temp = malloc(11221);
@@ -32,7 +31,6 @@ int main(int argc, char *argv[]) {
     //temp[1] = "../Desktop";
     //cd(temp);
     //parse_command("ls");
-    //history_command();
     //cd("~");
     //parse_command("ls");
     // any other early configuration should be here
@@ -59,7 +57,7 @@ void start(bool read_from_file) {
 void shell_loop(bool input_from_file) {
     bool from_file = input_from_file;
 
-    while (true) {
+    while (keep_running) {
         //printf(" PWD: %s\n\n",lookup_variable("PWD"));
         char * temp = getcwd(temp,100);
         char * command = malloc(1000);
@@ -90,3 +88,8 @@ void shell_loop(bool input_from_file) {
         */
     }
 }
+/*
+void intHandler(int) {
+    keepRunning = false;
+}
+ */
