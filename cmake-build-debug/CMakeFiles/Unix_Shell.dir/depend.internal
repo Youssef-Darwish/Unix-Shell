@@ -14,6 +14,7 @@ CMakeFiles/Unix_Shell.dir/commands.c.o
 CMakeFiles/Unix_Shell.dir/environment.c.o
  /home/youssef/Desktop/OS/Unix-Shell/environment.c
  /home/youssef/Desktop/OS/Unix-Shell/environment.h
+ /home/youssef/Desktop/OS/Unix-Shell/file_processing.h
  /home/youssef/Desktop/OS/Unix-Shell/variables.h
 CMakeFiles/Unix_Shell.dir/execute.c.o
  /home/youssef/Desktop/OS/Unix-Shell/commands.h
@@ -29,7 +30,9 @@ CMakeFiles/Unix_Shell.dir/main.c.o
  /home/youssef/Desktop/OS/Unix-Shell/command_parser.h
  /home/youssef/Desktop/OS/Unix-Shell/commands.h
  /home/youssef/Desktop/OS/Unix-Shell/environment.h
+ /home/youssef/Desktop/OS/Unix-Shell/file_processing.h
  /home/youssef/Desktop/OS/Unix-Shell/main.c
+ /home/youssef/Desktop/OS/Unix-Shell/variables.h
 CMakeFiles/Unix_Shell.dir/variables.c.o
  /home/youssef/Desktop/OS/Unix-Shell/variables.c
  /home/youssef/Desktop/OS/Unix-Shell/variables.h

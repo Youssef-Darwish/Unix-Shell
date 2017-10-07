@@ -55,6 +55,8 @@ stdio.h
 /home/youssef/Desktop/OS/Unix-Shell/stdio.h
 stdlib.h
 /home/youssef/Desktop/OS/Unix-Shell/stdlib.h
+file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
 
 /home/youssef/Desktop/OS/Unix-Shell/environment.h
 
@@ -91,6 +93,12 @@ variables.h
 /home/youssef/Desktop/OS/Unix-Shell/variables.h
 string.h
 /home/youssef/Desktop/OS/Unix-Shell/string.h
+stdio.h
+/home/youssef/Desktop/OS/Unix-Shell/stdio.h
+unistd.h
+/home/youssef/Desktop/OS/Unix-Shell/unistd.h
+stdlib.h
+/home/youssef/Desktop/OS/Unix-Shell/stdlib.h
 
 /home/youssef/Desktop/OS/Unix-Shell/file_processing.h
 stdio.h
@@ -111,6 +119,10 @@ string.h
 -
 stdio.h
 -
+file_processing.h
+/home/youssef/Desktop/OS/Unix-Shell/file_processing.h
+variables.h
+/home/youssef/Desktop/OS/Unix-Shell/variables.h
 
 /home/youssef/Desktop/OS/Unix-Shell/variables.c
 stdlib.h

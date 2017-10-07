@@ -25,6 +25,6 @@ void write_in_log_file(char * messages);
 void open_commands_batch_file(char * path);
 FILE* get_commands_batch_file();
 void close_commands_batch_file();
-
+void set_file_paths();
 
 #endif // FILE_PROCESSING_H_

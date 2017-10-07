@@ -8,7 +8,7 @@ main.o: main.c command_parser.h commands.h environment.h variables.h
 file_processing.o: file_processing.c file_processing.h variables.h
 	gcc -c file_processing.c
 
-environment.o: environment.c environment.h variables.h
+environment.o: environment.c environment.h variables.h file_processing.h
 	gcc -c environment.c
 
 variables.o: variables.c variables.h

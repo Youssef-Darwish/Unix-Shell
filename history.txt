@@ -1,1 +1,40 @@
-#this is a comment #another comment #once again #this is a comment #ay 5ra #this is a comment #more comments? xD #more and more ls pwd ls ls -la touch new.txt ps 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ps 
+/bin/ps 
+pwd 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+vi lab1.txt 
+pwd 
+cd ../ 
+cd ~ 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+#x=5 
+cd /home/youssef 
+cd ~/Downloads 
+cd .. 
+cd ~ 
+cd Desktop 
+cd OS 
+cd Unix-shell 
+ls -la 
+ls -l 
+cd /home/youssef 
+cd Desktop 
+cd scan 
+ls 
+ls -la 
+ls 
+ls 
+ls 
+ls -a 
+cd Desktop 
+ls -la 

@@ -27,9 +27,7 @@ int main(int argc, char *argv[]) {
     setup_environment();
     char **temp = malloc(100);
     temp[1] = lookup_variable("HOME");
-    cd(temp); // let shell starts from home
-    //parse_command("ls");
-    // any other early configuration should be here
+    cd(temp,2); // let shell starts from home
     file_arg = argv;
     free(temp);
     if (argc > 1) {
@@ -52,7 +50,7 @@ void start(bool read_from_file) {
             printf("no such batch file\n");
             read_from_file = false;
         }
-        batch_file = get_commands_batch_file();
+
         shell_loop(read_from_file);
     } else {
         shell_loop(read_from_file);
@@ -63,29 +61,32 @@ void shell_loop(bool input_from_file) {
     bool from_file = input_from_file;
 
     while (keep_running) {
-        //printf(" PWD: %s\n\n",lookup_variable("PWD"));
+        printf(" PWD: %s\n\n",lookup_variable("PWD"));
         char *temp = getcwd(temp, 100);
         char *command = malloc(1000);
-        printf("PWD : %s\n\n", temp);
+        // print_all_variables();
+        //printf("PWD : %s\n\n", lookup_variable("PWD"));
         if (from_file) {
             //read next instruction from file
-
-            if (getline(&command, 100, batch_file) != -1) {
-                printf("COMMAND FROM FILE : %s\n", command);
+            if (fgets(command, 520, batch_file) != NULL) {
+                printf("COMMAND FROM FILE :%s\n", command);
+                command[strlen(command)-1] = '\0';
                 parse_command(command);
             }
-
+            else
+                from_file = false;
             // if end of file {from_file = false; continue;}
         } else {
             //read next instruction from console
+            printf("%s/ ",lookup_variable("PWD"));
             printf("Shell>");
-            printf("contined to next instruction\n\n");
             gets(command);
+            parse_command(command);
         }
         //printf(" command: %s.",command);
 
-        parse_command(command);
-        free(command);
+        //parse_command(command);
+        //free(command);
         //parse your command here
 
         //execute your command here

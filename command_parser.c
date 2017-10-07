@@ -26,15 +26,18 @@ void check_command_type(char **args);
 
 char *search_file(const char *file, char *directory, int flag);
 
-char **slice_string(const char *string, char *delimiter);
+char **slice_string(const char *string, char *delimiter, int *params);
 
 char **exclude_ampersand(char **args);
 //end of declarations
 
 void parse_command(const char *command) {
 
-
-    char **arguments = slice_string(command, " ");
+    int params = 0;
+    int pathParams = 0;
+    char **arguments = slice_string(command, " ", &params);
+    if(params==0)
+        return;
     check_command_type(arguments);
     check_execution_type(arguments);
     if (state == background) {
@@ -43,9 +46,10 @@ void parse_command(const char *command) {
     // if command is not executed by :execv, no need to check the path of .exe file
     //send it directly to execute
     if (type != ex) {
-        execute("", arguments, state, type);
+        //printf("params : %d\n\n", params);
+        execute("", arguments, state, type, params);
     } else {
-        char **path_files = slice_string(getenv("PATH"), ":");
+        char **path_files = slice_string(getenv("PATH"), ":", &pathParams);
 
         char *path_flag = arguments[0];
 
@@ -71,19 +75,20 @@ void parse_command(const char *command) {
         }
         if (!strcmp(exe_file, "")) {
             printf("Invalid Command!\n\n");
-            free(arguments);
-            free(path_files);
+            //free(arguments);
+            //free(path_files);
             return;
         }
         // debugging
-        int k = 0;
-        printf("DEBUGGING ...\n");
-        printf("EXE: %s\n", exe_file);
-        while (arguments[k] != NULL) {
-            printf("%s\n", arguments[k]);
-            k++;
-        }
-        execute(exe_file, arguments, state, type);
+       // int k = 0;
+       // printf("DEBUGGING ...\n");
+       // printf("EXE: %s\n", exe_file);
+
+//        while (arguments[k] != NULL) {
+//            printf("%s\n", arguments[k]);
+//            k++;
+//        }
+        execute(exe_file, arguments, state, type, params);
         //free(arguments);
         //free(path_files);
 
@@ -158,7 +163,6 @@ char *search_file(const char *file, char *directory, int flag) {
             }
             number_of_files++;
         }
-        //printf("Number of files :%d\n", number_of_files);
         closedir(dir);
     } else {
         /* could not open directory */
@@ -168,7 +172,7 @@ char *search_file(const char *file, char *directory, int flag) {
     return "";
 }
 
-char **slice_string(const char *string, char *delimiter) {
+char **slice_string(const char *string, char *delimiter, int *params) {
     char *pch;
     // path cannot be modified so use a temp char * and copy path into temp
     char *temp = (char *) malloc(10000);
@@ -192,7 +196,8 @@ char **slice_string(const char *string, char *delimiter) {
      }
      printf("end of printing slices\n\n");
      */
-    sliced_string[i]=NULL;
+    *params = i;
+    sliced_string[i] = NULL;
     return sliced_string;
 
 }

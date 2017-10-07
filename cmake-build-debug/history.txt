@@ -1,0 +1,14 @@
+ls ls ls -la pwd pwd 
+ls -la 
+cd .. 
+ls 
+ls -la 
+pwd 
+ls 
+ls 
+ls 
+ls 
+ls -l 
+ls 
+ls -la 
+pwd 

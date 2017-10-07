@@ -14,13 +14,14 @@
 #include "errno.h"
 #include "file_processing.h"
 
-void execute(char *path, char **arguments, execution_state state, command_type type) {
+void execute(char *path, char **arguments, execution_state state,
+             command_type type, int numberOfParams) {
 
     pid_t pid;
     siginfo_t child_status;
     // cd command is handled separately without fork
     if (type == cd_type) {
-        cd(arguments);
+        cd(arguments, numberOfParams);
         open_history_file();
         write_in_history_file(arguments);
         close_history_file();
@@ -31,9 +32,6 @@ void execute(char *path, char **arguments, execution_state state, command_type t
     pid = fork();
 
     if (pid == 0) {
-        //check for type
-        printf("Child goes here\n");
-        //sleep(10);
         if (type == comment) {
             comment_command(arguments);
             return;
@@ -49,29 +47,27 @@ void execute(char *path, char **arguments, execution_state state, command_type t
                 printf("exit failure\n");
                 exit(EXIT_FAILURE);
             }
-            //write_in_history_file(arguments);
-            //exit(errno);
         }
     } else {
         //here check for execution_state
         // upon success add in history & log files
         // upon failure add in log file
-        printf("Parent\n");
+
         if (state == foreground) {
-            //printf("waiting...");
-            errno=0;
+            errno = 0;
             waitid(P_PID, pid, &child_status, WEXITED);
-            printf("Error : %d\n", errno);
-            printf("Exit :%d\n\n", child_status);
-            printf("Child finished\n PID  %d\n", pid);
+//            printf("Error : %d\n", errno);
+//            printf("Exit :%d\n\n", child_status);
             open_history_file();
             write_in_history_file(arguments);
             close_history_file();
-            //open_log_file();
-            //printf("opened");
-            //write_in_log_file("Child process terminated");
+//            open_log_file();
+//            char * process_id = malloc(100);
+//            sprintf(process_id,"Process Id= %d",pid);
+//            write_in_log_file("Child process terminated");
+//            write_in_log_file(process_id);
+//            close_log_file();
 
-            //write_in_history_file(arguments);
         }
 
     }

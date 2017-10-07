@@ -1,34 +1,38 @@
 #include "file_processing.h"
 #include "variables.h"
 #include "string.h"
+#include "stdio.h"
+#include "unistd.h"
+#include "stdlib.h"
 
 /*
 	history file section
 */
 FILE *history_file;
 FILE *log_file;
-FILE * batch_file;
-void open_history_file() {
-    char *path = (char *) lookup_variable("FILES_DIRECTORY");
-    printf("History File path :    %s\n",path);
+FILE *batch_file;
 
-    // hard coding path for now only  instead use pwd
-    path = "/home/youssef/Desktop/OS/Unix-Shell/history.txt";
-    printf("%s\n",path);
-    history_file = fopen(path, "a+");
+char *history_file_path;
+char *log_file_path;
+
+void open_history_file() {
+
+    history_file = fopen(history_file_path, "a+");
 }
 
 FILE *get_history_file() {
     return history_file;
 }
-void write_in_history_file(char ** message){
 
-    int i=0;
-    while(message[i]!=NULL){
-        fprintf(history_file,"%s ",message[i]);
+void write_in_history_file(char **message) {
+
+    int i = 0;
+    while (message[i] != NULL) {
+        fprintf(history_file, "%s ", message[i]);
         i++;
     }
-
+    fprintf(history_file, "\n");
+    fflush(history_file);
 }
 
 void close_history_file() {
@@ -40,13 +44,7 @@ void close_history_file() {
 	log file section
 */
 void open_log_file() {
-    char *path = (char *) lookup_variable("PWD");
-    printf("%s\n",path);
-    // hard coding path for now only
-    path = "/home/youssef/Desktop/log.txt";
-    printf(" LOG FILE PATH\n%s\n",path);
-    log_file = fopen(path, "a+");
-
+    fopen(log_file_path, "a+");
 }
 
 FILE *get_log_file() {
@@ -54,25 +52,22 @@ FILE *get_log_file() {
 }
 
 void close_log_file() {
-    // you should implement this function
+    fclose(log_file);
 }
-void write_in_log_file(char * line){
-    int i=0;
-    while(line[i]!=NULL){
-        fprintf(log_file,"%s ",line[i]);
-        i++;
-    }
+
+void write_in_log_file(char *line) {
+
+    fprintf(log_file,"%s\t",line);
 }
 
 
 /* 
 	CommandsBatch file section
 */
-void open_commands_batch_file(char * path) {
-    printf("Paht to file : %s\n",path);
-    batch_file = fopen(path,"r");
+void open_commands_batch_file(char *path) {
+    printf("Path to file : %s\n", path);
+    batch_file = fopen("/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/testCases.txt", "r");
 
-    // you should implement this function
 }
 
 FILE *get_commands_batch_file() {
@@ -81,4 +76,16 @@ FILE *get_commands_batch_file() {
 
 void close_commands_batch_file() {
     // you should implement this function
+}
+
+void set_file_paths() {
+
+    history_file_path = malloc(1000);
+    log_file_path = malloc(1000);
+    history_file_path = strcpy(history_file_path, lookup_variable("FILES_DIRECTORY"));
+
+    history_file_path = strcat(history_file_path, "/history.txt");
+    log_file_path = (char *) lookup_variable("FILES_DIRECTORY");
+    log_file_path = strcat(log_file_path, "/log.txt");
+
 }

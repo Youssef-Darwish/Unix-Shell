@@ -6,44 +6,64 @@
 #include "unistd.h"
 #include "stdlib.h"
 
-char *getVars(char *word);
 
 
 // adding a comment to test Makefile xD
 
-void cd(const char **path) {
+void cd(const char **path, int params) {
 
     // check if empty ?
-
+    if (params == 1) {
+        path[1] = lookup_variable("HOME");
+    }
+    /*
+    if (params>2){
+        printf("wrong number of params for cd command!!");
+        return;
+    }
+*/
     char *copy = malloc(100);
+
     copy = strcpy(copy, path[1]);
-    char *current_working_firectory = malloc(100);
-    printf("Current working directory before cd command is:\n%s\n\n",lookup_variable("PWD"));
+    char *current_working_directory = malloc(100);
+    //printf("Current working directory before cd command is:\n%s\n\n", lookup_variable("PWD"));
     if (copy[0] == '/' || copy[0] == '.') {
         chdir(path[1]);
-        current_working_firectory = getcwd(current_working_firectory, 100);
-        set_variable("PWD", current_working_firectory);
-    } else if (copy[0] == '~') {
+        current_working_directory = getcwd(current_working_directory, 100);
+        set_variable("PWD", current_working_directory);
+    } else if (!strcmp(copy, "~")) {
         set_variable("PWD", lookup_variable("HOME"));
         chdir(lookup_variable("HOME"));
+    } else if (strlen(copy) > 2 && copy[0] == '~' && copy[1] == '/') {
 
-    } else if (copy[0] == ' ' || copy[0] == '\0') {
-        chdir(lookup_variable("HOME"));
-        set_variable("PWD", lookup_variable("HOME"));
+
+        char *absPath = malloc(strlen(copy) + 1);
+        absPath = memcpy(absPath, &copy[1], strlen(copy) - 1);
+        absPath[strlen(copy) - 1] = '\0';
+        char *current_path = malloc(100);
+        current_path = lookup_variable("HOME");
+        current_path = strcat(current_path, absPath);
+
+        chdir(current_path);
+        current_path = getcwd(current_path, 100);
+        set_variable("PWD", current_path);
+
     } else { //relative path is given
-        //printf(" Concatenated Path :%s\n",strcat((char *) lookup_variable("PWD"), path[1]));
-        //chdir(strcat((char *) lookup_variable("PWD"), path[1]));
-        current_working_firectory = getcwd(current_working_firectory, 100);
-        set_variable("PWD", current_working_firectory);
+
+        current_working_directory = getcwd(current_working_directory, 100);
+        current_working_directory = strcat(current_working_directory,"/");
+        current_working_directory = strcat(current_working_directory,copy);
+        chdir(current_working_directory);
+        set_variable("PWD", current_working_directory);
     }
-    printf("Current working directory after cd command is:\n%s\n\n",lookup_variable("PWD"));
+    //printf("Current working directory after cd command is:\n%s\n\n", lookup_variable("PWD"));
 /*
     chdir(path);
     set_variable("PWD", path);
     */
     //printf("%s\n\n", lookup_variable("PWD"));
-    free(current_working_firectory);
-    free(copy);
+    //free(current_working_directory);
+    //free(copy);
 }
 
 /*
