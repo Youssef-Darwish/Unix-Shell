@@ -4,7 +4,7 @@ ls -a -l
 /bin/ls -l -a
         /bin/ls     -l 
 #vim
-$gedit &
+gedit &
 ps
 /bin/ps
 pwd

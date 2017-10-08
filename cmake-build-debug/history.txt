@@ -12,3 +12,11 @@ ls -l
 ls 
 ls -la 
 pwd 
+ls 
+ls -la 
+ls $PATH 
+ls $HOME 
+ls $PATH 
+ls $PATH 
+ls /home/youssef/Desktop 
+cd /home/youssef/Desktop 

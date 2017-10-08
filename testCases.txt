@@ -4,13 +4,10 @@ ls -a -l
 
 /bin/ls -l -a
         /bin/ls     -l 
-
 vim
-
-gedit &
+#gedit &
 ps
 /bin/ps
-
 pwd
 mkdir cs333
 touch cs333/lab1.txt
@@ -19,10 +16,8 @@ vi lab1.txt
 pwd
 cd ../
 cd ~
-
 wc cs333/lab1.txt
 cat cs333/lab1.txt
-
 #this is a comment
 x=5
 echo $x

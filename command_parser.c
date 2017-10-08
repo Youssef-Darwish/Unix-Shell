@@ -28,6 +28,8 @@ char *search_file(const char *file, char *directory, int flag);
 
 char **slice_string(const char *string, char *delimiter, int *params);
 
+char **extract_variables(char **arguments);
+
 char **exclude_ampersand(char **args);
 //end of declarations
 
@@ -35,14 +37,18 @@ void parse_command(const char *command) {
 
     int params = 0;
     int pathParams = 0;
+
+
     char **arguments = slice_string(command, " ", &params);
-    if(params==0)
+    if (params == 0)
         return;
     check_command_type(arguments);
     check_execution_type(arguments);
     if (state == background) {
         arguments = exclude_ampersand(arguments);
     }
+    arguments = extract_variables(arguments);
+
     // if command is not executed by :execv, no need to check the path of .exe file
     //send it directly to execute
     if (type != ex) {
@@ -80,9 +86,9 @@ void parse_command(const char *command) {
             return;
         }
         // debugging
-       // int k = 0;
-       // printf("DEBUGGING ...\n");
-       // printf("EXE: %s\n", exe_file);
+        // int k = 0;
+        // printf("DEBUGGING ...\n");
+        // printf("EXE: %s\n", exe_file);
 
 //        while (arguments[k] != NULL) {
 //            printf("%s\n", arguments[k]);
@@ -211,4 +217,25 @@ char **exclude_ampersand(char **args) {
         i++;
     }
     return modified_arguments;
+}
+
+char **extract_variables(char **arguments) {
+
+    int i = 0;
+    while (arguments[i] != NULL) {
+        char *word = arguments[i];
+        if (word[0] == '$') {
+            char *replaced_var = lookup_variable(word + 1);
+
+            if (!strcmp(replaced_var, "")) {
+                continue;
+            }
+            arguments[i] = replaced_var;
+
+
+        }
+        i++;
+    }
+    return arguments;
+
 }

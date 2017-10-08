@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "file_processing.h"
 #include "variables.h"
+
 typedef enum {
     false = 0, true = 1
 } bool;
@@ -27,7 +28,7 @@ int main(int argc, char *argv[]) {
     setup_environment();
     char **temp = malloc(100);
     temp[1] = lookup_variable("HOME");
-    cd(temp,2); // let shell starts from home
+    cd(temp, 2); // let shell starts from home
     file_arg = argv;
     free(temp);
     if (argc > 1) {
@@ -61,26 +62,29 @@ void shell_loop(bool input_from_file) {
     bool from_file = input_from_file;
 
     while (keep_running) {
-        printf(" PWD: %s\n\n",lookup_variable("PWD"));
-        char *temp = getcwd(temp, 100);
+        printf(" PWD: %s\n\n", lookup_variable("PWD"));
         char *command = malloc(1000);
-        // print_all_variables();
+        //print_all_variables();
         //printf("PWD : %s\n\n", lookup_variable("PWD"));
         if (from_file) {
             //read next instruction from file
             if (fgets(command, 520, batch_file) != NULL) {
                 printf("COMMAND FROM FILE :%s\n", command);
-                command[strlen(command)-1] = '\0';
+                command[strlen(command) - 1] = '\0';
                 parse_command(command);
-            }
-            else
+            } else
                 from_file = false;
             // if end of file {from_file = false; continue;}
         } else {
             //read next instruction from console
-            printf("%s/ ",lookup_variable("PWD"));
+            printf("%s/ ", lookup_variable("PWD"));
             printf("Shell>");
             gets(command);
+           /* if (!(*command)) {
+                printf("\n");
+                keep_running = false;
+            }*/
+
             parse_command(command);
         }
         //printf(" command: %s.",command);

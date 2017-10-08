@@ -38,3 +38,86 @@ ls
 ls -a 
 cd Desktop 
 ls -la 
+ls 
+ls -la 
+cd /home/youssef 
+cd Desktop 
+cd pics 
+ls 
+ls -la 
+ls 
+ls -la 
+ls $x 
+pwd 
+ls -la 
+ls -la 
+ls 
+ls -la 
+pwd 
+ls -la 
+pwd 
+ls 
+ls -la 
+ls -la 
+vim 
+ls 
+ls -la 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ps 
+/bin/ps 
+pwd 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+vi lab1.txt 
+pwd 
+cd ../ 
+cd ~ 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+#x=5 
+ls 
+history 
+echo 	"hello world" 
+history 
+echo "hello world" 
+history 
+cd /home/youssef/cs333 
+cd /home/youssef/cs333 
+cd .. 
+cd ~ 
+cd Desktop 
+cd /home/youssef 
+cd /home/youssef 
+ls 
+ls -la 
