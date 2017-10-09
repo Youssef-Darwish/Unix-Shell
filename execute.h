@@ -1,6 +1,4 @@
-//
-// Created by Youssef Darwish on 04/10/17.
-//
+
 
 #ifndef EXECUTE_H
 #define EXECUTE_H

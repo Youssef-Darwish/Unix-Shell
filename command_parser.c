@@ -35,12 +35,21 @@ char **exclude_ampersand(char **args);
 
 void parse_command(const char *command) {
 
-    int params = 0;
+    int commandParams = 0;
     int pathParams = 0;
+    int assignmentParams = 0;
+    int exportParams = 0;
+    // check for variable assignment, not stored in history yet
 
+    char **variable_assignment = slice_string(command, "=", &assignmentParams);
 
-    char **arguments = slice_string(command, " ", &params);
-    if (params == 0)
+    if (assignmentParams == 2) {
+        set_variable(variable_assignment[0], variable_assignment[1]);
+        return;
+    }
+
+    char **arguments = slice_string(command, " ", &commandParams);
+    if (commandParams == 0)
         return;
     check_command_type(arguments);
     check_execution_type(arguments);
@@ -53,7 +62,7 @@ void parse_command(const char *command) {
     //send it directly to execute
     if (type != ex) {
         //printf("params : %d\n\n", params);
-        execute("", arguments, state, type, params);
+        execute("", arguments, state, type, commandParams);
     } else {
         char **path_files = slice_string(getenv("PATH"), ":", &pathParams);
 
@@ -94,7 +103,7 @@ void parse_command(const char *command) {
 //            printf("%s\n", arguments[k]);
 //            k++;
 //        }
-        execute(exe_file, arguments, state, type, params);
+        execute(exe_file, arguments, state, type, commandParams);
         //free(arguments);
         //free(path_files);
 
@@ -228,12 +237,15 @@ char **extract_variables(char **arguments) {
             char *replaced_var = lookup_variable(word + 1);
 
             if (!strcmp(replaced_var, "")) {
-                continue;
-            }
-            arguments[i] = replaced_var;
 
+                //continue;
+            } else {
+                arguments[i] = replaced_var;
+
+            }
 
         }
+        //printf("arguments in extract_var: %s\n\n", arguments[i]);
         i++;
     }
     return arguments;

@@ -20,3 +20,22 @@ ls $PATH
 ls $PATH 
 ls /home/youssef/Desktop 
 cd /home/youssef/Desktop 
+cd /home/youssef 
+cd .. 
+cd youssef 
+cd Desktop 
+cd /home/youssef 
+cd ~/Desktop 
+cd .. 
+cd Downloads 
+cd /home/youssef/Desktop 
+cd /home/youssef 
+ls -l 
+ls 
+ls -la 
+ls -la 
+ls 
+cd /home/youssef/Desktop 
+pwd 
+ls 
+cd .. 

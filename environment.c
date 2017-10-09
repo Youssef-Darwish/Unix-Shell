@@ -15,9 +15,7 @@ void setup_environment(void) {
     const char *home = getenv("HOME");
     set_variable("HOME", home);
     const char *files_directory = getenv("PWD");
-    char *current_working_directory = getenv("PWD");
     set_variable("FILES_DIRECTORY", files_directory);
-    set_variable("x","/home/youssef/Desktop");
     set_variable("PWD", getenv("PWD") );
     set_file_paths();
 

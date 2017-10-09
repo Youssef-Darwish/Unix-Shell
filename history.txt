@@ -4,88 +4,113 @@ ls -a -l
 /bin/ls -l -a 
 /bin/ls -l 
 #vim 
+#gedit 
+ps 
+ps 
+/bin/ps 
+/bin/ps 
+pwd 
+pwd 
+mkdir cs333 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+pwd 
+cd ../ 
+cd ~ 
+pwd 
+cd ../ 
+cd ~ 
+wc cs333/lab1.txt 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+#this is a comment 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+#gedit 
+ps 
+ps 
+/bin/ps 
+/bin/ps 
+pwd 
+pwd 
+mkdir cs333 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+#gedit 
+ps 
+ps 
+/bin/ps 
+/bin/ps 
+pwd 
+pwd 
+mkdir cs333 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+pwd 
+cd ../ 
+cd ~ 
+pwd 
+cd ../ 
+cd ~ 
+wc cs333/lab1.txt 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+cat cs333/lab1.txt 
+#this is a comment 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
 ps 
 /bin/ps 
 pwd 
 mkdir cs333 
 touch cs333/lab1.txt 
 cd ~/cs333 
-vi lab1.txt 
+#vi lab1.txt 
 pwd 
 cd ../ 
 cd ~ 
 wc cs333/lab1.txt 
 cat cs333/lab1.txt 
 #this is a comment 
-#x=5 
 cd /home/youssef 
-cd ~/Downloads 
-cd .. 
-cd ~ 
+cd /home/youssef 
+ls 
 cd Desktop 
 cd OS 
-cd Unix-shell 
-ls -la 
-ls -l 
+cd .. 
+cd .. 
 cd /home/youssef 
-cd Desktop 
-cd scan 
-ls 
-ls -la 
-ls 
-ls 
-ls 
-ls -a 
-cd Desktop 
-ls -la 
-ls 
-ls -la 
 cd /home/youssef 
-cd Desktop 
-cd pics 
-ls 
-ls -la 
-ls 
-ls -la 
-ls $x 
-pwd 
-ls -la 
-ls -la 
-ls 
-ls -la 
-pwd 
-ls -la 
-pwd 
-ls 
-ls -la 
-ls -la 
-vim 
-ls 
-ls -la 
-ls 
-ls -al 
-ls -a -l 
-/bin/ls -l -a 
-/bin/ls -l 
-#vim 
-ls 
-ls -al 
-ls -a -l 
-/bin/ls -l -a 
-/bin/ls -l 
-#vim 
-ls 
-ls -al 
-ls -a -l 
-/bin/ls -l -a 
-/bin/ls -l 
-#vim 
-ls 
-ls -al 
-ls -a -l 
-/bin/ls -l -a 
-/bin/ls -l 
-#vim 
 ls 
 ls -al 
 ls -a -l 
@@ -93,31 +118,99 @@ ls -a -l
 /bin/ls -l 
 #vim 
 ps 
-/bin/ps 
 pwd 
 mkdir cs333 
 touch cs333/lab1.txt 
 cd ~/cs333 
-vi lab1.txt 
+#vi lab1.txt 
 pwd 
 cd ../ 
 cd ~ 
 wc cs333/lab1.txt 
 cat cs333/lab1.txt 
 #this is a comment 
-#x=5 
-ls 
-history 
-echo 	"hello world" 
-history 
-echo "hello world" 
-history 
-cd /home/youssef/cs333 
-cd /home/youssef/cs333 
 cd .. 
+cd cs333 
+cd ~/Desktop 
+cd ~/Desktop 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ps 
+pwd 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+pwd 
+cd .. 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ps 
+pwd 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+pwd 
+cd ../ 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+ls 
+ls -al 
+ls -a -l 
+/bin/ls -l -a 
+/bin/ls -l 
+#vim 
+ps 
+pwd 
+mkdir cs333 
+touch cs333/lab1.txt 
+cd ~/cs333 
+#vi lab1.txt 
+pwd 
+cd ../ 
 cd ~ 
+wc cs333/lab1.txt 
+cat cs333/lab1.txt 
+#this is a comment 
+cd ~ 
+cd /home/youssef 
+pwd 
+cd ~/Desktop 
+cd .. 
+cd ~/Downloads 
+ls 
+ls 
+ls 
+cd /Desktop 
 cd Desktop 
+ls 
 cd /home/youssef 
-cd /home/youssef 
+ls -la 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
+ls 
 ls 
 ls -la 
+gedit 
+gedit 

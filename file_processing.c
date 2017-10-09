@@ -44,7 +44,10 @@ void close_history_file() {
 	log file section
 */
 void open_log_file() {
-    fopen(log_file_path, "a+");
+    if (fopen(log_file_path, "a+") == NULL) {
+        printf("cannot open file\n");
+    } else
+        printf("LOG file: %s\n\n", log_file_path);
 }
 
 FILE *get_log_file() {
@@ -52,12 +55,16 @@ FILE *get_log_file() {
 }
 
 void close_log_file() {
+    printf("before closing\n");
     fclose(log_file);
+    printf("after closing\n");
+
 }
 
 void write_in_log_file(char *line) {
+    printf("line arrived xD\n\n");
+    fprintf(log_file,line);
 
-    fprintf(log_file,"%s\t",line);
 }
 
 

@@ -62,7 +62,8 @@ void shell_loop(bool input_from_file) {
     bool from_file = input_from_file;
 
     while (keep_running) {
-        printf(" PWD: %s\n\n", lookup_variable("PWD"));
+
+        //print_all_variables();
         char *command = malloc(1000);
         //print_all_variables();
         //printf("PWD : %s\n\n", lookup_variable("PWD"));
@@ -80,17 +81,19 @@ void shell_loop(bool input_from_file) {
             printf("%s/ ", lookup_variable("PWD"));
             printf("Shell>");
             gets(command);
-           /* if (!(*command)) {
+            /* if (!(*command)) {
                 printf("\n");
                 keep_running = false;
             }*/
-
+            if(command[0]==EOF){
+                keep_running=false;
+            }
             parse_command(command);
         }
         //printf(" command: %s.",command);
 
         //parse_command(command);
-        //free(command);
+        free(command);
         //parse your command here
 
         //execute your command here

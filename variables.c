@@ -51,7 +51,7 @@ void print_all_variables(void) {
 }
 
 void set_up_variables() {
-    keys_saved = malloc(100);
-    values_saved = malloc(100);
+    keys_saved = malloc(10000);
+    values_saved = malloc(10000);
     keys_number = 0;
 }

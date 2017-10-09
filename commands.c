@@ -78,6 +78,7 @@ void echo(const char **message) {
         char *word = message[i];
         if (word[0] == '$') {
             word = lookup_variable(word + 1);
+            //printf("word from echo:%s\n",word);
             if (!strcmp(word, "")) {
                 printf("%s ", message[i]);
             } else {
@@ -95,7 +96,6 @@ void history_command() {
 
     open_history_file();
     FILE *history_file = get_history_file();
-    printf("opened\n\n");
     char c;
     int count = 0;
 

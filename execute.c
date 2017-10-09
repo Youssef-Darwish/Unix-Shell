@@ -14,6 +14,7 @@
 #include "errno.h"
 #include "file_processing.h"
 
+void signal_handler(int sig);
 void execute(char *path, char **arguments, execution_state state,
              command_type type, int numberOfParams) {
 
@@ -28,7 +29,7 @@ void execute(char *path, char **arguments, execution_state state,
         return;
     }
 
-
+    //signal(SIGCHLD,(*si))
     pid = fork();
 
     if (pid == 0) {
@@ -44,8 +45,13 @@ void execute(char *path, char **arguments, execution_state state,
         } else {
 
             if (execv(path, arguments) == -1) {
+
                 printf("exit failure\n");
-                exit(EXIT_FAILURE);
+                kill(getppid(),SIGCHLD);
+                exit(1);
+
+            } else{
+                exit(0);
             }
         }
     } else {
@@ -62,13 +68,17 @@ void execute(char *path, char **arguments, execution_state state,
             write_in_history_file(arguments);
             close_history_file();
 //            open_log_file();
-//            char * process_id = malloc(100);
-//            sprintf(process_id,"Process Id= %d",pid);
-//            write_in_log_file("Child process terminated");
-//            write_in_log_file(process_id);
+//            char * line = "Child process terminated";
+//            write_in_log_file(line);
 //            close_log_file();
 
         }
 
     }
+
+    // sighandler
+}
+
+void signal_handler(int sig){
+
 }
