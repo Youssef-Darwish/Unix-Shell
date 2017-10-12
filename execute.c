@@ -1,7 +1,3 @@
-//
-// Created by Youssef Darwish on 04/10/17.
-//
-
 #include <string.h>
 #include "execute.h"
 #include "stdlib.h"
@@ -14,7 +10,7 @@
 #include "errno.h"
 #include "file_processing.h"
 
-void signal_handler(int sig);
+
 void execute(char *path, char **arguments, execution_state state,
              command_type type, int numberOfParams) {
 
@@ -23,62 +19,32 @@ void execute(char *path, char **arguments, execution_state state,
     // cd command is handled separately without fork
     if (type == cd_type) {
         cd(arguments, numberOfParams);
-        open_history_file();
-        write_in_history_file(arguments);
-        close_history_file();
         return;
     }
-
-    //signal(SIGCHLD,(*si))
     pid = fork();
-
     if (pid == 0) {
-        if (type == comment) {
-            comment_command(arguments);
-            return;
-        } else if (type == history) {
+        if (type == history) {
             history_command();
-            //write_in_history_file(arguments);
         } else if (type == echo_type) {
             echo(arguments);
-            //write_in_history_file(arguments);
         } else {
 
             if (execv(path, arguments) == -1) {
-
                 printf("exit failure\n");
-                kill(getppid(),SIGCHLD);
+                kill(getppid(), SIGCHLD);
                 exit(1);
-
-            } else{
+            } else {
                 exit(0);
             }
         }
     } else {
-        //here check for execution_state
-        // upon success add in history & log files
-        // upon failure add in log file
-
         if (state == foreground) {
-            errno = 0;
             waitid(P_PID, pid, &child_status, WEXITED);
-//            printf("Error : %d\n", errno);
-//            printf("Exit :%d\n\n", child_status);
-            open_history_file();
-            write_in_history_file(arguments);
-            close_history_file();
-//            open_log_file();
-//            char * line = "Child process terminated";
-//            write_in_log_file(line);
-//            close_log_file();
-
+            open_log_file();
+            char *line = "Child process terminated";
+            write_in_log_file(line);
+            close_log_file();
         }
-
     }
-
-    // sighandler
-}
-
-void signal_handler(int sig){
 
 }

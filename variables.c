@@ -9,26 +9,25 @@ int keys_number;
 
 const char *lookup_variable(const char *key) {
     int j = 0;
+
     while (j < keys_number) {
         if (!strcmp(key, keys_saved[j])) {
-
-            //printf("looked up %s\n%s\n",key,values_saved[j]);
-            return values_saved[j];
+            char *c = malloc(1000);
+            strcpy(c,values_saved[j]);
+            return c;
         }
         j++;
     }
     return "";
 }
-
 void set_variable(const char *key, const char *value) {
 
     int i = 0;
     while (i < keys_number) {
         if (!strcmp(keys_saved[i], key)) {
-
-            values_saved[i] = (char *) value;
-            //printf("value saved\n\n");
-            //printf("%s\n",value);
+            char * c= malloc(1000);
+            strcpy(c,value);
+            values_saved[i] = c;
             return;
         }
         i++;
@@ -47,7 +46,6 @@ void print_all_variables(void) {
         printf("%s :%s\n", keys_saved[j], values_saved[j]);
         j++;
     }
-    // you should implement this function
 }
 
 void set_up_variables() {

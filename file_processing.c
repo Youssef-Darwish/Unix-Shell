@@ -1,8 +1,6 @@
 #include "file_processing.h"
 #include "variables.h"
 #include "string.h"
-#include "stdio.h"
-#include "unistd.h"
 #include "stdlib.h"
 
 /*
@@ -32,7 +30,6 @@ void write_in_history_file(char **message) {
         i++;
     }
     fprintf(history_file, "\n");
-    fflush(history_file);
 }
 
 void close_history_file() {
@@ -44,10 +41,9 @@ void close_history_file() {
 	log file section
 */
 void open_log_file() {
-    if (fopen(log_file_path, "a+") == NULL) {
+    if ((log_file = fopen(log_file_path, "a+")) == NULL) {
         printf("cannot open file\n");
-    } else
-        printf("LOG file: %s\n\n", log_file_path);
+    }
 }
 
 FILE *get_log_file() {
@@ -55,15 +51,13 @@ FILE *get_log_file() {
 }
 
 void close_log_file() {
-    printf("before closing\n");
     fclose(log_file);
-    printf("after closing\n");
 
 }
 
 void write_in_log_file(char *line) {
-    printf("line arrived xD\n\n");
-    fprintf(log_file,line);
+    fprintf(log_file, line);
+    fprintf(log_file, "\n");
 
 }
 
@@ -72,17 +66,18 @@ void write_in_log_file(char *line) {
 	CommandsBatch file section
 */
 void open_commands_batch_file(char *path) {
-    printf("Path to file : %s\n", path);
-    batch_file = fopen("/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/testCases.txt", "r");
+    batch_file = fopen(path, "r");
+    printf("%s\n",path);
 
 }
 
 FILE *get_commands_batch_file() {
+
     return batch_file;
 }
 
 void close_commands_batch_file() {
-    // you should implement this function
+    fclose(batch_file);
 }
 
 void set_file_paths() {

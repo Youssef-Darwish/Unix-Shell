@@ -14,7 +14,7 @@ environment.o: environment.c environment.h variables.h file_processing.h
 variables.o: variables.c variables.h
 	gcc -c variables.c
 
-command_parser.o: command_parser.c command_parser.h execute.h
+command_parser.o: command_parser.c command_parser.h execute.h file_processing.h
 	gcc -c command_parser.c
 
 execute.o: execute.c execute.h file_processing.h variables.h commands.h 

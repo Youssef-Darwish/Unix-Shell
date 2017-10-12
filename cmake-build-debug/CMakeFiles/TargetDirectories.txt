@@ -1,3 +1,0 @@
-/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/youssef/Desktop/OS/Unix-Shell/cmake-build-debug/CMakeFiles/Unix_Shell.dir
